@@ -12,6 +12,7 @@
     "cortexpe/commando": "dev-PM5",
     "czechpmdevs/libpmform": "dev-main",
     "muqsit/vanillagenerator": "dev-master",
+    "muqsit/simple-packet-handler": "dev-pm5",
     "axolotl-pm/pocketmine-mp": "5.51.2",
     "phpstan/phpstan": "2.1.46"
   },
@@ -32,6 +33,10 @@
     {
       "type": "vcs",
       "url": "https://github.com/ACM-PocketMine-MP/Commando/"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/Muqsit/SimplePacketHandler"
     }
   ],
   "autoload": {

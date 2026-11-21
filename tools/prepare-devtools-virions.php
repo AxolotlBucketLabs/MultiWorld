@@ -47,6 +47,7 @@ $projectRoot = dirname(__DIR__);
 $virionsDirectory = $projectRoot . DIRECTORY_SEPARATOR . '.devtools-virions';
 $packages = [
 	'cortexpe/commando' => 'Commando',
+	'muqsit/simple-packet-handler' => 'PacketHandler',
 	'czechpmdevs/libpmform' => 'libpmform',
 	'muqsit/vanillagenerator' => 'VanillaGenerator'
 ];
@@ -100,6 +101,8 @@ try {
 		copyDirectory($sourceDirectory . DIRECTORY_SEPARATOR . 'src', $targetDirectory . DIRECTORY_SEPARATOR . 'src');
 		if($virionName === 'VanillaGenerator') {
 			patchVanillaGenerator($targetDirectory);
+		} elseif($virionName === 'PacketHandler') {
+			patchSimplePacketHandler($targetDirectory);
 		}
 		$resourcesDirectory = $sourceDirectory . DIRECTORY_SEPARATOR . 'resources';
 		if(is_dir($resourcesDirectory)) {
@@ -214,6 +217,79 @@ function patchVanillaGenerator(string $virionDirectory): void {
 	$patched = str_replace($constructor, $replacement, $patched);
 	if(file_put_contents($path, $patched) !== strlen($patched)) {
 		throw new RuntimeException('Could not apply the guarded tree factory to VanillaGenerator.');
+	}
+	patchMesaGroundGenerator($virionDirectory);
+}
+
+function patchMesaGroundGenerator(string $virionDirectory): void {
+	$path = $virionDirectory . DIRECTORY_SEPARATOR . implode(DIRECTORY_SEPARATOR, [
+		'src',
+		'muqsit',
+		'vanillagenerator',
+		'generator',
+		'ground',
+		'MesaGroundGenerator.php'
+	]);
+	$contents = file_get_contents($path);
+	if($contents === false) {
+		throw new RuntimeException('Could not read VanillaGenerator MesaGroundGenerator.php.');
+	}
+
+	$replacements = [
+		'$this->setColoredGroundLayer($world, $x, $y, $z, $y < $seaLevel || $y > 128 ? 1 : ($colored ? $color : -1));' => '$this->setColoredGroundLayer($world, $x, $y, $z, $y < $seaLevel || $y > 128 ? DyeColor::ORANGE() : ($colored ? $color : null));',
+		'private function setColoredGroundLayer(ChunkManager $world, int $x, int $y, int $z, DyeColor $color) : void{' => 'private function setColoredGroundLayer(ChunkManager $world, int $x, int $y, int $z, ?DyeColor $color) : void{',
+		'$world->setBlockAt($x, $y, $z, $color >= 0 ? VanillaBlocks::STAINED_CLAY()->setColor($color) : VanillaBlocks::HARDENED_CLAY());' => '$world->setBlockAt($x, $y, $z, $color !== null ? VanillaBlocks::STAINED_CLAY()->setColor($color) : VanillaBlocks::HARDENED_CLAY());'
+	];
+	foreach($replacements as $search => $replace) {
+		if(substr_count($contents, $search) !== 1) {
+			throw new RuntimeException('VanillaGenerator MesaGroundGenerator.php no longer matches the expected source.');
+		}
+		$contents = str_replace($search, $replace, $contents);
+	}
+	if(file_put_contents($path, $contents) !== strlen($contents)) {
+		throw new RuntimeException('Could not patch VanillaGenerator MesaGroundGenerator.php.');
+	}
+}
+
+function patchSimplePacketHandler(string $virionDirectory): void {
+	$patches = [
+		'src/muqsit/simplepackethandler/utils/Utils.php' => [
+			['use function is_a;', '', 1],
+			['use ReflectionProperty;', '', 1],
+			['$network_ids = [];', "\$network_ids = [];\n\t\t\$packets = \$pool->getAll();\n\t\t\$packet_ids_by_class = [];\n\t\tforeach(\$packets as \$registered_packet) {\n\t\t\t\$packet_ids_by_class[get_class(\$registered_packet)] = \$registered_packet->pid();\n\t\t}", 1],
+			['public static function parseClosureSignature(', "\tprivate static function isTypeCompatible(string \$type, string \$expected) : bool{\n\t\treturn \$type === \$expected\n\t\t\t|| in_array(\$expected, \\class_parents(\$type) ?: [], true)\n\t\t\t|| in_array(\$expected, \\class_implements(\$type) ?: [], true);\n\t}\n\n\tpublic static function parseClosureSignature(", 1],
+			['is_a($name, $parameter_compare, true)', 'self::isTypeCompatible($name, $parameter_compare)', 1],
+			['assert(is_a($packet, DataPacket::class, true));', 'assert($packet === DataPacket::class || in_array(DataPacket::class, \\class_parents($packet) ?: [], true));', 1],
+			['$type::class', 'get_class($type)', 1],
+			["assert(is_int(\$packet::NETWORK_ID));\n\t\t\t\t\$network_ids[] = \$packet::NETWORK_ID;", "\$packet_id = \$packet_ids_by_class[\$packet] ?? null;\n\t\t\t\tif(!is_int(\$packet_id)) {\n\t\t\t\t\tthrow new InvalidArgumentException(\"Packet class \$packet is not registered in the packet pool.\");\n\t\t\t\t}\n\t\t\t\t\$network_ids[] = \$packet_id;", 1],
+			["\t\t\t\tstatic \$packets = null;\n\t\t\t\t\$packets ??= (new ReflectionProperty(\$pool, \"pool\"))->getValue(\$pool);\n", '', 1],
+			['if(!is_a($validate, $packet::class, true)){', 'if(!self::isTypeCompatible($validate, get_class($packet))){', 1]
+		],
+		'src/muqsit/simplepackethandler/interceptor/PacketInterceptorListener.php' => [
+			['$packet::NETWORK_ID', '$packet->pid()', 2]
+		],
+		'src/muqsit/simplepackethandler/monitor/PacketMonitorListener.php' => [
+			['$packet::NETWORK_ID', '$packet->pid()', 2]
+		]
+	];
+	foreach($patches as $relativePath => $replacements) {
+		$path = $virionDirectory . DIRECTORY_SEPARATOR . str_replace('/', DIRECTORY_SEPARATOR, $relativePath);
+		$contents = file_get_contents($path);
+		if($contents === false) {
+			throw new RuntimeException(sprintf('Could not read SimplePacketHandler source %s.', $relativePath));
+		}
+		$lineEnding = str_contains($contents, "\r\n") ? "\r\n" : "\n";
+		$contents = str_replace("\r\n", "\n", $contents);
+		foreach($replacements as [$search, $replace, $count]) {
+			if(substr_count($contents, $search) !== $count) {
+				throw new RuntimeException(sprintf('SimplePacketHandler source %s no longer matches the expected source.', $relativePath));
+			}
+			$contents = str_replace($search, $replace, $contents);
+		}
+		$contents = str_replace("\n", $lineEnding, $contents);
+		if(file_put_contents($path, $contents) !== strlen($contents)) {
+			throw new RuntimeException(sprintf('Could not patch SimplePacketHandler source %s.', $relativePath));
+		}
 	}
 }
 
