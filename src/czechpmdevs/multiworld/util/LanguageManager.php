@@ -57,9 +57,81 @@ class LanguageManager {
 		"vi" => "vie"
 	];
 
-	// In some cases plugin is not able to access plugin data directory
-	// TODO - Publish code to generate that on gist
-	private const DEFAULT_LANGUAGE = 'eyJub3QtcGVybXMiOiJcdTAwYTdjWW91IGRvIG5vdCBoYXZlIHBlcm1pc3Npb24gdG8gdXNlIHRoaXMgY29tbWFuZCIsImRlZmF1bHQtdXNhZ2UiOiJcdTAwYTdjVXNhZ2U6IFx1MDBhNzdcL213IGhlbHAiLCJoZWxwIjoiXHUwMGE3Mi0tLSBTaG93aW5nIE11bHRpV29ybGQgaGVscCBwYWdlIHslMH0gb2YgeyUxfSAoXC9tdyBoZWxwIDxwYWdlPikgLS0tIiwiaGVscC0xIjoiXHUwMGE3MlwvbXcgY3JlYXRlIFx1MDBhN2ZDcmVhdGUgYSB3b3JsZCIsImhlbHAtMiI6Ilx1MDBhNzJcL213IHRlbGVwb3J0IFx1MDBhN2ZUZWxlcG9ydCB0byBhIHdvcmxkIiwiaGVscC0zIjoiXHUwMGE3MlwvbXcgbGlzdCBcdTAwYTdmIERpc3BsYXlzIGEgbGlzdCBvZiBhbGwgd29ybGRzIiwiaGVscC00IjoiXHUwMGE3MlwvbXcgPGxvYWR8dW5sb2FkPiBcdTAwYTdmTG9hZCBvciB1bmxvYWQgYSB3b3JsZCIsImhlbHAtNSI6Ilx1MDBhNzJcL213IHVwZGF0ZSBcdTAwYTdmVXBkYXRlIGxvYmJ5LCBzcGF3biBpbiBhIHdvcmxkIG9yIGNoYW5nZSB0aGUgZGVmYXVsdCB3b3JsZCIsImhlbHAtNiI6Ilx1MDBhNzJcL213IGRlbGV0ZSBcdTAwYTdmUmVtb3ZlIGEgd29ybGQiLCJoZWxwLTciOiJcdTAwYTcyXC9tdyBpbmZvIFx1MDBhN2ZEaXNwbGF5cyBpbmZvcm1hdGlvbiBhYm91dCBhIHdvcmxkIiwiaGVscC04IjoiXHUwMGE3MlwvbXcgZ2FtZXJ1bGUgXHUwMGE3Zk1hbmFnZSB0aGUgZ2FtZXJ1bGVzIG9mIGEgbGV2ZWwiLCJoZWxwLTkiOiJcdTAwYTcyXC9tdyBtYW5hZ2UgXHUwMGE3ZkRpc3BsYXlzIGZvcm0gZm9yIG1hbmFnaW5nIHdpdGggd29ybGRzIiwiaGVscC0xMCI6Ilx1MDBhNzJcL213IHJlbmFtZSBcdTAwYTdmUmVuYW1lcyB0aGUgd29ybGQiLCJjcmVhdGUtdXNhZ2UiOiJcdTAwYTdjVXNhZ2U6IFx1MDBhNzdcL213IGNyZWF0ZSA8bmFtZT4gW3NlZWRdIFtnZW5lcmF0b3JdIiwiY3JlYXRlLWV4aXN0cyI6Ilx1MDBhN2NMZXZlbCB7JTB9IGlzIGFscmVhZHkgZ2VuZXJhdGVkISIsImNyZWF0ZS1nZW5ub3RleGlzdHMiOiJcdTAwYTdjR2VuZXJhdG9yIHslMH0gbm90IGZvdW5kLiIsImNyZWF0ZS1nZW5lcmF0aW5nIjoiXHUwMGE3YUdlbmVyYXRpbmcgd29ybGQgeyUwfSIsImNyZWF0ZS1kb25lIjoid29ybGRzIHslMH0gd2FzIGdlbmVyYXRlZCB1c2luZyBzZWVkOiB7JTF9IGFuZCBnZW5lcmF0b3I6IHslMn0uIiwidGVsZXBvcnQtdXNhZ2UiOiJcdTAwYTdjVXNhZ2U6IFx1MDBhNzdcL213IHRlbGVwb3J0IDx3b3JsZD4gW3BsYXllcl0iLCJ0ZWxlcG9ydC1sZXZlbG5vdGV4aXN0cyI6Ilx1MDBhN2NXb3JsZCB7JTB9IGhhcyBub3QgYmVlbiBjcmVhdGVkIHlldC4gVHJ5IFwvbXcgY3JlYXRlIHRvIGNyZWF0ZSBhIHdvcmxkLiIsInRlbGVwb3J0LWxvYWQiOiJMb2FkaW5nIHdvcmxkIHslMH0uLi4iLCJ0ZWxlcG9ydC1kb25lLTEiOiJcdTAwYTdhWW91IHdlcmUgdGVsZXBvcnRlZCB0byB7JTB9LiIsInRlbGVwb3J0LWRvbmUtMiI6Ilx1MDBhN2FQbGF5ZXIgeyUxfSB3YXMgdGVsZXBvcnRlZCB0byB7JTB9LiIsInRlbGVwb3J0LXBsYXllcm5vdGV4aXN0cyI6Ilx1MDBhN2NQbGF5ZXIgZG9lcyBub3QgZXhpc3QuIiwibGlzdC1kb25lIjoiXHUwMGE3YVdvcmxkcyAoeyUwfSk6IiwibG9hZC11c2FnZSI6Ilx1MDBhN2NVc2FnZTogXHUwMGE3N1wvbXcgbG9hZCA8d29ybGQ+IiwibG9hZC1ub3RleGlzdHMiOiJcdTAwYTdjV29ybGQgeyUwfSBkb2VzIG5vdCBleGlzdC4iLCJsb2FkLWxvYWRlZCI6Ilx1MDBhN2NVbmFibGUgdG8gbG9hZCB0aGUgd29ybGQuIiwibG9hZC1kb25lIjoiXHUwMGE3YVdvcmxkIGxvYWRlZC4iLCJ1bmxvYWQtdXNhZ2UiOiJcdTAwYTdjVXNhZ2U6IFx1MDBhNzdcL213IHVubG9hZCA8d29ybGQ+IiwidW5sb2FkLWxldmVsbm90ZXhpc3RzIjoiXHUwMGE3Y3slMH0gZG9lcyBub3QgZXhpc3QuIiwidW5sb2FkLXVubG9hZGVkIjoiXHUwMGE3Y1VuYWJsZSB0byB1bmxvYWQgdGhlIHdvcmxkLiIsInVubG9hZC1kb25lIjoiXHUwMGE3YVdvcmxkIHVubG9hZGVkLiIsImRlbGV0ZS11c2FnZSI6Ilx1MDBhN2NVc2FnZTogXHUwMGE3N1wvbXcgZGVsZXRlIDx3b3JsZD4iLCJkZWxldGUtbGV2ZWxub3RleGlzdHMiOiJcdTAwYTdjV29ybGQgZG9lcyBub3QgZXhpc3QuIiwiZGVsZXRlLWRvbmUiOiJcdTAwYTdhV29ybGQgZGVsZXRlZC4gKHslMH0gZmlsZXMgcmVtb3ZlZC4pIiwidXBkYXRlLXVzYWdlIjoiXHUwMGE3Y1VzYWdlOiBcdTAwYTc3XC9tdyB1cGRhdGUgPG1vZDogc3Bhd258bG9iYnl8ZGVmYXVsdD4gW29wdGlvbnM6ICh3b3JsZCkgKHgpICh5KSAoeildIiwidXBkYXRlLWxldmVsbm90ZXhpc3RzIjoiXHUwMGE3Y1dvcmxkIHslMH0gZG9lcyBub3QgZXhpc3QuIiwidXBkYXRlLXNwYXduLWRvbmUiOiJcdTAwYTdhU3Bhd24gaW4gd29ybGQgeyUwfSB3YXMgY2hhbmdlZC4iLCJ1cGRhdGUtbG9iYnktZG9uZSI6Ilx1MDBhN2FMb2JieSBpbiB3b3JsZCB7JTB9IHdhcyBjaGFuZ2VkLiIsInVwZGF0ZS1kZWZhdWx0LXVzYWdlIjoiXHUwMGE3Y1VzYWdlOiBcdTAwYTc3XC9tdyB1cGRhdGUgZGVmYXVsdCA8bGV2ZWw+IiwidXBkYXRlLWRlZmF1bHQtZG9uZSI6Ilx1MDBhN2FEZWZhdWx0IHdvcmxkIHdhcyBjaGFuZ2VkIHRvIHslMH0uIiwidXBkYXRlLW5vdHN1cHBvcnRlZCI6Ilx1MDBhNzRQbGVhc2UgcnVuIHRoaXMgY29tbWFuZCBpbi1nYW1lIiwiaW5mby1sZXZlbG5vdGV4aXN0cyI6Ilx1MDBhN2N7JTB9IGRvZXMgbm90IGV4aXN0LiIsImluZm8iOiJcdTAwYTdhLS0tIHslMH0gLS0tIiwiaW5mby1uYW1lIjoiXHUwMGE3N05hbWU6IHslMH0iLCJpbmZvLWZvbGRlck5hbWUiOiJcdTAwYTc3Rm9sZGVyIG5hbWU6IHslMH0iLCJpbmZvLXBsYXllcnMiOiJcdTAwYTc3UGxheWVyIGNvdW50OiB7JTB9IiwiaW5mby1nZW5lcmF0b3IiOiJcdTAwYTc3R2VuZXJhdG9yOiB7JTB9IiwiaW5mby1zZWVkIjoiXHUwMGE3N1NlZWQ6IHslMH0iLCJpbmZvLXRpbWUiOiJcdTAwYTc3VGltZTogeyUwfSIsImdhbWVydWxlLXVzYWdlIjoiXHUwMGE3Y1VzYWdlOiBcdTAwYTc3XC9tdyBnYW1lcnVsZSA8bGlzdHxnYW1lcnVsZT4gW3RydWV8ZmFsc2VdIFtsZXZlbF0iLCJnYW1lcnVsZS1saXN0IjoiXHUwMGE3YUVkaXRhYmxlIGdhbWVydWxlczogeyUwfSIsImdhbWVydWxlLWxldmVsbm90Zm91bmQiOiJcdTAwYTdjV29ybGQgeyUwfSBub3QgZm91bmQuIiwiZ2FtZXJ1bGUtbm90ZXhpc3RzIjoiXHUwMGE3Y0dhbWVydWxlIHslMH0gZG9lcyBub3QgZXhpc3QuIiwiZ2FtZXJ1bGUtZG9uZSI6Ilx1MDBhN2FHYW1lcnVsZSB7JTB9IGluIHdvcmxkIHslMX0gd2FzIGNoYW5nZWQgdG8geyUyfS4iLCJyZW5hbWUtdXNhZ2UiOiJcdTAwYTdjVXNhZ2U6IFx1MDBhNzdcL213IHJlbmFtZSA8ZnJvbT4gPHRvPiIsInJlbmFtZS1leGlzdHMiOiJcdTAwYTdjTGV2ZWwgd2l0aCBuYW1lIHslMH0gYWxyZWFkeSBleGlzdHMuIiwicmVuYW1lLWxldmVsbm90Zm91bmQiOiJcdTAwYTdjTGV2ZWwgeyUwfSBkb2VzIG5vdCBleGlzdHMuIiwicmVuYW1lLWRvbmUiOiJcdTAwYTdhTmFtZSBvZiBsZXZlbCB7JTB9IHdhcyBjaGFuZ2VkIHRvIHslMX0uIiwiZm9ybXMtaW52YWxpZCI6Ilx1MDBhN2NJbnZhbGlkIHJlc3VsdC4ifQ==';
+	// Use built-in English messages when language resources are unavailable.
+	private const DEFAULT_LANGUAGE = <<<'JSON'
+	{
+	  "not-perms": "§cYou do not have permission to use this command",
+	  "default-usage": "§cUsage: §7/mw help",
+	  "ingame": "§cThis command can be only used in game.",
+	  "help": "§2--- Showing MultiWorld help page {%0} of {%1} (/mw help <page>) ---",
+	  "help-1": "§2/mw create §fCreate a world",
+	  "help-2": "§2/mw teleport §fTeleport to a world",
+	  "help-3": "§2/mw list §f Displays a list of all worlds",
+	  "help-4": "§2/mw load §fLoads a world",
+	  "help-5": "§2/mw unload §fUnloads a world",
+	  "help-6": "§2/mw delete §fRemoves a world",
+	  "help-7": "§2/mw info §fDisplays information about a world",
+	  "help-8": "§2/mw gamerule §fManages the gamerules of a level",
+	  "help-9": "§2/mw manage §fDisplays form for managing with worlds",
+	  "help-10": "§2/mw rename §fRenames the world",
+	  "help-11": "§2/mw duplicate §fDuplicates a world",
+	  "help-12": "§2/mw setspawn §fUpdate world spawn",
+	  "help-13": "§2/mw setlobby §fUpdate server lobby position",
+	  "create-usage": "§cUsage: §7/mw create <name> [seed] [generator]",
+	  "create-exists": "§cWorld {%0} is already generated!",
+	  "create-gennotexists": "§cGenerator {%0} not found.",
+	  "create-generating": "§aGenerating world {%0}",
+	  "create-done": "World {%0} was generated using seed: {%1} and generator: {%2}.",
+	  "teleport-usage": "§cUsage: §7/mw teleport <world> [player]",
+	  "teleport-levelnotexists": "§cWorld {%0} has not been created yet. Try /mw create to create a world.",
+	  "teleport-load": "Loading world {%0}...",
+	  "teleport-done-1": "§aYou were teleported to {%0}.",
+	  "teleport-done-2": "§aPlayer {%1} was teleported to {%0}.",
+	  "teleport-playernotexists": "§cPlayer does not exist.",
+	  "teleport-error": "§cAn error occurred whilst teleporting player: {%0}",
+	  "list-done": "§aWorlds ({%0}):",
+	  "load-usage": "§cUsage: §7/mw load <world>",
+	  "load-notexists": "§cWorld {%0} does not exist.",
+	  "load-loaded": "§cUnable to load the world.",
+	  "load-done": "§aWorld loaded.",
+	  "load-error": "§cAn error occurred whilst loading the world: {%0}",
+	  "unload-usage": "§cUsage: §7/mw unload <world>",
+	  "unload-levelnotexists": "§c{%0} does not exist.",
+	  "unload-unloaded": "§cUnable to unload the world.",
+	  "unload-default": "§cUnable to unload default level.",
+	  "unload-done": "§aWorld unloaded.",
+	  "delete-usage": "§cUsage: §7/mw delete <world>",
+	  "delete-levelnotexists": "§cWorld does not exist.",
+	  "delete-done": "§aWorld deleted. ({%0} files removed.)",
+	  "info-levelnotexists": "§c{%0} does not exist.",
+	  "info-unloaded": "§cCould not fetch info from the world {%0}, due to the world could not be loaded.",
+	  "info": "§a--- {%0} ---",
+	  "info-name": "§7Name: {%0}",
+	  "info-folderName": "§7Folder name: {%0}",
+	  "info-players": "§7Player count: {%0}",
+	  "info-generator": "§7Generator: {%0}",
+	  "info-seed": "§7Seed: {%0}",
+	  "info-time": "§7Time: {%0}",
+	  "gamerule-usage": "§cUsage: §7/mw gamerule <list|gamerule> [true|false] [level]",
+	  "gamerule-list": "§aAvailable game rules: {%0}",
+	  "gamerule-levelnotfound": "§cWorld {%0} not found.",
+	  "gamerule-notexists": "§cGame rule {%0} does not exist.",
+	  "gamerule-done": "§aGame rule {%0} in world {%1} was changed to {%2}.",
+	  "rename-usage": "§cUsage: §7/mw rename <from> <to>",
+	  "rename-exists": "§cLevel with name {%0} already exists.",
+	  "rename-levelnotfound": "§cLevel {%0} does not exist.",
+	  "rename-done": "§aName of level {%0} was changed to {%1}.",
+	  "rename-error": "§cCould not rename the world (Access denied)",
+	  "duplicate-usage": "§cUsage: §7/mw duplicate <world> [newName]",
+	  "duplicate-exists": "§cWorld with name {%0} already exists.",
+	  "duplicate-levelnotfound": "§cLevel {%0} does not exist.",
+	  "duplicate-done": "World {%0} duplicated, name of the duplicate is {%1}",
+	  "setspawn-success": "§a{%0} world spawn set to {%1}",
+	  "setlobby-error": "§cCould not update default world: {%0}",
+	  "setlobby-success": "§aServer lobby position set to {%0} at {%1}",
+	  "forms-invalid": "§cInvalid result."
+	}
+	JSON;
 
 	public static string $defaultLang;
 
@@ -91,7 +163,7 @@ class LanguageManager {
 		}
 
 		if(!isset(LanguageManager::$languages[LanguageManager::$defaultLang])) {
-			$defaultLanguage = self::parseLanguage(json_decode((string)base64_decode(LanguageManager::DEFAULT_LANGUAGE, true), true));
+			$defaultLanguage = self::parseLanguage(json_decode(self::DEFAULT_LANGUAGE, true));
 			if($defaultLanguage === null) {
 				throw new LogicException("Could not load the default language");
 			}
