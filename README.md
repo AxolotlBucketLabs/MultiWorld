@@ -2,8 +2,6 @@
 
 MultiWorld adds world management commands, custom generators, and an in-game form to Axolotl-PM.
 
-AxolotlBucketLabs maintains this fork of [CzechPMDevs/MultiWorld](https://github.com/CzechPMDevs/MultiWorld).
-
 [![Build and validate](https://github.com/AxolotlBucketLabs/MultiWorld/actions/workflows/build.yml/badge.svg)](https://github.com/AxolotlBucketLabs/MultiWorld/actions/workflows/build.yml) [![License](https://img.shields.io/github/license/AxolotlBucketLabs/MultiWorld)](LICENSE) [![Discord](https://img.shields.io/discord/1568295845374206052?label=Discord&logo=discord&logoColor=white&color=5865F2)](https://discord.gg/Pk4FrNvHnM)
 
 ## Requirements
@@ -92,14 +90,10 @@ php vendor/bin/phpstan analyse --no-progress
 
 The `Build and validate` workflow runs on pushes, pull requests, and manual dispatch. It checks language selection and void-world generation, uses AxolotlBucketLabs DevTools to build and validate the PHAR, runs PHPStan at `max` against Axolotl-PM, and uploads the PHAR and build metadata as an artifact.
 
-## Credits
-
-MultiWorld was created by CzechPMDevs. The plugin authors also include [VixikCZ](https://github.com/VixikCZ), [fuyutsuki](https://github.com/fuyutsuki), [kaliiks](https://github.com/kaliiks), and AxolotlBucketLabs.
-
-The Overworld and Nether generators were ported from the Glowstone project by [Muqsit](https://github.com/Muqsit).
-
-The icon was created by Freepik from [Flaticon](https://www.flaticon.com/) under the [CC BY 3.0 license](https://creativecommons.org/licenses/by/3.0/).
-
-## License
+## Credits and license
 
 MultiWorld is licensed under [GNU GPL-3.0-or-later](LICENSE).
+
+The Overworld and Nether generators were ported from [Glowstone](https://github.com/GlowstoneMC/Glowstone) by [Muqsit](https://github.com/Muqsit). Glowstone is licensed under the [MIT License](https://github.com/GlowstoneMC/Glowstone/blob/dev/LICENSE).
+
+The icon is by [Freepik](https://www.freepik.com/) from [Flaticon](https://www.flaticon.com/), under [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/).
