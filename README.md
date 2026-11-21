@@ -1,22 +1,26 @@
 # MultiWorld
 
-MultiWorld provides commands for creating and managing worlds on PocketMine-MP. It also includes custom world generators and an in-game world management form.
+MultiWorld adds world management commands, custom generators, and an in-game form to Axolotl-PM.
+
+AxolotlBucketLabs maintains this fork of [CzechPMDevs/MultiWorld](https://github.com/CzechPMDevs/MultiWorld).
+
+[![Build and validate](https://github.com/AxolotlBucketLabs/MultiWorld/actions/workflows/build.yml/badge.svg)](https://github.com/AxolotlBucketLabs/MultiWorld/actions/workflows/build.yml)
 
 ## Requirements
 
 - Axolotl-PM with plugin API 5.36.0 or newer.
 - PHP 8.4 with the `yaml` and `json` extensions.
 
-The build workflow currently analyzes the plugin against Axolotl-PM 5.51.2.
+The workflow currently builds and analyzes the plugin against Axolotl-PM 5.51.2. Compatibility with API 5.36.0 and upstream PocketMine-MP is not tested by that workflow.
 
 ## Features
 
 - Create, load, unload, duplicate, rename, delete, and inspect worlds.
 - Teleport yourself or another player to a world.
 - Set a world's spawn or change the server lobby.
-- Generate worlds with PocketMine-MP and custom generators.
+- Generate worlds with built-in and custom generators.
 - Manage common world tasks through an in-game form.
-- Display messages in the selected language.
+- Display messages in each player's language when a matching translation is available.
 
 ## Install
 
@@ -59,9 +63,9 @@ Use the optional `generator` argument with `/mw create`.
 | `ender` | `end` | MultiWorld End generator |
 | `skyblock` | `sb` | MultiWorld SkyBlock generator |
 | `void` | `empty`, `emptyworld` | MultiWorld Void generator |
-| `flat` | `superflat` | PocketMine-MP Flat generator |
-| `normal_old` | | PocketMine-MP Normal generator |
-| `nether_old` | | PocketMine-MP Nether generator |
+| `flat` | `superflat` | Built-in flat generator |
+| `normal_old` | | Built-in normal generator |
+| `nether_old` | | Built-in Nether generator |
 
 For example, `/mw create resource 12345 skyblock` creates a SkyBlock world named `resource` with seed `12345`.
 
@@ -70,8 +74,8 @@ For example, `/mw create resource 12345 skyblock` creates a SkyBlock world named
 MultiWorld creates `plugins/MultiWorld/config.yml` on first start. The main settings are:
 
 - `prefix`: Prefix used in plugin messages.
-- `language`: Default language used for messages.
-- `force-default-language`: Always use the configured language when set to `true`.
+- `language`: Fallback language used when the player's client language is unavailable.
+- `force-default-language`: Use the configured language for every player when set to `true`.
 
 Language files are stored in `plugins/MultiWorld/languages/`.
 
@@ -82,10 +86,11 @@ Use PHP 8.4 and Composer to install the locked development dependencies:
 ```sh
 composer install --prefer-dist --no-interaction --no-progress --no-scripts --no-plugins
 php tools/prepare-devtools-virions.php
+php tests/smoke.php
 php vendor/bin/phpstan analyse --no-progress
 ```
 
-The `Build and validate` workflow runs on pushes, pull requests, and manual dispatch. It uses AxolotlBucketLabs DevTools to build and validate the PHAR, runs PHPStan at `max` against Axolotl-PM, and uploads the PHAR and build metadata as an artifact.
+The `Build and validate` workflow runs on pushes, pull requests, and manual dispatch. It checks language selection and void-world generation, uses AxolotlBucketLabs DevTools to build and validate the PHAR, runs PHPStan at `max` against Axolotl-PM, and uploads the PHAR and build metadata as an artifact.
 
 ## Credits
 

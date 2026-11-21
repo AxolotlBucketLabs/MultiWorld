@@ -7,12 +7,10 @@ config-version: '2.0.0.0'
 # Field with prefix
 prefix: '§7[MultiWorld]'
 
-# You can add your language by creating pull request at GitHub (github.com/CzechPMDevs/MultiWorld/pulls)
-# Language is automatically chosen from minecraft. There you can change
-# fallback language, which is used when the server does not have required language resources
+# The player's Minecraft language is used when a matching translation is available.
+# This language is used as a fallback when no matching translation is available.
 language: 'eng'
 
-# Enabling this option will cause server to use forcefully language specified in
-# 'language' field.
+# Set this to true to use the configured language for every player.
 force-default-language: false
 ...

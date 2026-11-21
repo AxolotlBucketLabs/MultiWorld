@@ -1,6 +1,6 @@
 {
   "name": "czechpmdevs/multiworld",
-  "description": "An advanced world management PocketMine plugin with custom world generators.",
+  "description": "An Axolotl-PM world management plugin with custom generators.",
   "minimum-stability": "dev",
   "license": "GPL-3.0-or-later",
   "require": {

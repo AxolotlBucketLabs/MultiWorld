@@ -29,6 +29,8 @@ jobs:
           pm-version-major: '5'
       - name: Install locked dependencies
         run: composer install --prefer-dist --no-interaction --no-progress --no-scripts --no-plugins
+      - name: Run focused runtime smoke checks
+        run: php tests/smoke.php
       - name: Prepare locked virions
         run: php tools/prepare-devtools-virions.php
       - name: Build and analyze with DevTools 4.1.1

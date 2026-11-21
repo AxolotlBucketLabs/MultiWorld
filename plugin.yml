@@ -5,7 +5,7 @@ api: 5.36.0
 version: 2.1.2
 main: czechpmdevs\multiworld\MultiWorld
 description: Plugin for managing worlds
-website: https://github.com/CzechPMDevs/MultiWorld
+website: https://github.com/AxolotlBucketLabs/MultiWorld
 extensions:
   Core: '>=8.4'
 
