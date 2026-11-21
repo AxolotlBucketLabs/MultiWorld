@@ -22,7 +22,7 @@ help-9: '§2/mw manage §f显示管理世界的GUI'
 help-10: '§2/mw rename §f重命名世界'
 
 help-11: '§2/mw duplicate §f复制一个世界'
-help-12: '§2/mw setspawan §fUpdate world spawn'
+help-12: '§2/mw setspawn §fUpdate world spawn'
 help-13: '§2/mw setlobby §fUpdate server lobby position'
 
 # Create Command:
@@ -46,7 +46,7 @@ list-done: '§a世界 ({%0}):'
 
 # Load Command:
 load-usage: '§c输入: §7/mw load <世界名>'
-load-levelnotexists: '§c世界 {%0} 不存在!'
+load-notexists: '§c世界 {%0} 不存在!'
 load-loaded: '§c不能加载这个世界!'
 load-done: '§a该世界被成功加载!'
 load-error: '§cAn error occurred whilst loading the world: {%0}'
@@ -98,7 +98,7 @@ duplicate-done: '世界 {%0} 已复制为 {%1}'
 setspawn-success: '§a{%0} world spawn set to {%1}'
 
 # Set Lobby
-setlobby-errror: '§cCould not update default world: {%0}'
+setlobby-error: '§cCould not update default world: {%0}'
 setlobby-success: '§aServer lobby position set to {%0} at {%1}'
 
 # Forms

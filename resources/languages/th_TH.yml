@@ -3,7 +3,7 @@
 
 ## Commands:
 
-not-perms: '§cคุณไม่มีสิทธ์ใช้คำสั่งนี้'
+not-perms: '§cคุณไม่มีสิทธิ์ใช้คำสั่งนี้'
 default-usage: '§cใช้: §7/mw help'
 ingame: '§cThis command can be only used in game.'
 
@@ -22,7 +22,7 @@ help-9: '§2/mw manage §fโชว์หน้าต่างตั้งค่
 help-10: '§2/mw rename §fแก้ชื่อโลก'
 
 help-11: '§2/mw duplicate §fคัดลอกโลก'
-help-12: '§2/mw setspawan §fUpdate world spawn'
+help-12: '§2/mw setspawn §fUpdate world spawn'
 help-13: '§2/mw setlobby §fUpdate server lobby position'
 
 # Create Command:
@@ -56,7 +56,7 @@ unload-usage: '§cใช้: §7/mw unload <ชื่อโลก>'
 unload-levelnotexists: '§cไม่พบโลก {%0}'
 unload-unloaded: '§cไม่สามารถปลดโหลดโลกนี้ได้'
 unload-default: '§cไม่สามารถโหลดโลกค่าเริ่มต้นได้'
-unload-done: '§cโลกได้ถูกปลดโหลด'
+unload-done: '§aโลกได้ถูกปลดโหลด'
 
 # Delete Command:
 delete-usage: '§cใช้: §7/mw delete <ชื่อโลก>'
@@ -98,7 +98,7 @@ duplicate-done: 'โลก {%0} ได้ถูกคัดลอก, ชื่�
 setspawn-success: '§a{%0} world spawn set to {%1}'
 
 # Set Lobby
-setlobby-errror: '§cCould not update default world: {%0}'
+setlobby-error: '§cCould not update default world: {%0}'
 setlobby-success: '§aServer lobby position set to {%0} at {%1}'
 
 # Forms

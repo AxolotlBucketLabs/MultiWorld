@@ -53,14 +53,14 @@ class InfoSubCommand extends BaseSubCommand {
 
 		if($worldName !== null) {
 			if(!Server::getInstance()->getWorldManager()->isWorldGenerated($worldName)) {
-				$sender->sendMessage(LanguageManager::translateMessage($sender, "info.levelnotexists", [$worldName]));
+				$sender->sendMessage(LanguageManager::translateMessage($sender, "info-levelnotexists", [$worldName]));
 				return;
 			}
 
 			if(WorldUtils::lazyLoadWorld($worldName)) {
 				$sender->sendMessage($this->getInfoMessage($sender, WorldUtils::getWorldByNameNonNull($worldName)));
 			} else {
-				$sender->sendMessage(LanguageManager::translateMessage($sender, "info.unloaded", [$worldName]));
+				$sender->sendMessage(LanguageManager::translateMessage($sender, "info-unloaded", [$worldName]));
 			}
 		} elseif($sender instanceof Player) {
 			$sender->sendMessage($this->getInfoMessage($sender, $sender->getWorld()));

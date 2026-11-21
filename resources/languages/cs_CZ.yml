@@ -22,7 +22,7 @@ help-9: '§2/mw manage §fZapne správce světů'
 help-10: '§2/mw rename §fPřejmenuje svět'
 
 help-11: '§2/mw duplicate §fZduplikuje svět'
-help-12: '§2/mw setspawan §fUpdate world spawn'
+help-12: '§2/mw setspawn §fUpdate world spawn'
 help-13: '§2/mw setlobby §fNastaví lobby serveru'
 
 # Create Command:
@@ -46,7 +46,7 @@ list-done: '§aSvěty ({%0}):'
 
 # Load Command:
 load-usage: '§cPoužij: §7/mw load <svět>'
-load-levelnotexists: '§cSvět {%0} neexistuje!'
+load-notexists: '§cSvět {%0} neexistuje!'
 load-loaded: '§cNelze načíst načtený svět!'
 load-done: '§aSvět byl načten!'
 load-error: '§cNastala chyba při načítání světa: {%0}'
@@ -98,7 +98,7 @@ duplicate-done: 'Svět {%0} byl úspěšně zduplikován, jméno zduplikovaného
 setspawn-success: '§aSpawn světa {%0} byl nastaven na {%1}'
 
 # Set Lobby
-setlobby-errror: '§cNastala chyba při změně základního světa: {%0}'
+setlobby-error: '§cNastala chyba při změně základního světa: {%0}'
 setlobby-success: '§aLobby nastaveno ve světě {%0} na pozici {%1}'
 
 # Forms

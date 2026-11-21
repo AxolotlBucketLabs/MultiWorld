@@ -7,13 +7,13 @@ not-perms: '§cSie haben nicht die benötigten Berechtigungen, diesen Befehl aus
 default-usage: '§cBenutzung: §7/mw help'
 ingame: '§cThis command can be only used in game.'
 
-# Hilfs Befehl:
+# Help Command:
 help: '§2--- §fMultiWorld help page ({%0}/{%1}) §2---'
 help-1: '§2/mw create §fEine Welt generieren'
 help-2: '§2/mw teleport §fTeleportieren zu einer Welt'
 help-3: '§2/mw list §fZeigt eine Liste aller Welten an'
 help-4: '§2/mw load §fWelt laden'
-help-5: '§2/mw unload §fWelt entlanden'
+help-5: '§2/mw unload §fWelt entladen'
 
 help-6: '§2/mw delete §fEine Welt entfernen'
 help-7: '§2/mw info §fZeigt Informationen über eine Welt an'
@@ -22,44 +22,44 @@ help-9: '§2/mw manage §fZeigt eine UI zum verwalten der Welten an'
 help-10: '§2/mw rename §fÄndert den Namen einer Welt'
 
 help-11: '§2/mw duplicate §fDuplicates world'
-help-12: '§2/mw setspawan §fUpdate world spawn'
+help-12: '§2/mw setspawn §fUpdate world spawn'
 help-13: '§2/mw setlobby §fUpdate server lobby position'
 
-# Befehl erstellen:
+# Create Command:
 create-usage: '§cBenutzung: §7/mw create <name> [seed] [generator]'
 create-exists: '§cDie Welt {%0} wurde bereits generiert!'
 create-gennotexists: 'Generator {%0} nicht gefunden.'
 create-generating: '§aGeneriere Welt {%0}...'
 create-done: 'Die Welt {%0} wird mit dem Seed {%1} erzeugt und dem Generator {%2}.'
 
-# Teleport Befehl:
+# Teleport Command:
 teleport-usage: '§cBenutzung: §7/mw teleport <welt> [spieler]'
 teleport-levelnotexists: '§cDie Welt {%0} wurde noch nicht erstellt! Versuche /mw create um eine Welt zu erstellen. '
 teleport-load: 'Lade die Welt {%0} ...'
 teleport-done-1: '§aDu wurdest in die Welt {%0} teleportiert.'
 teleport-done-2: '§aSpieler {%1} wurde in die Welt {%0} teleportiert!'
-teleport-playernotexisten: '§cDieser Spieler existiert nicht!'
+teleport-playernotexists: '§cDieser Spieler existiert nicht!'
 teleport-error: '§cAn error occurred whilst teleporting player: {%0}'
 
-# Liste Befehl:
+# List Command:
 list-done: '§aWelten ({%0}):'
 
-# Befehl laden:
+# Load Command:
 load-usage: '§cBenutzung: §7/mw load <welt>'
-load-levelnotexists: '§cWelt {%0} existiert nicht!'
+load-notexists: '§cWelt {%0} existiert nicht!'
 load-loaded: '§cLaden der Welt fehlgeschlagen!'
 load-done: '§aWelt geladen!'
 load-error: '§cAn error occurred whilst loading the world: {%0}'
 
-# Befehl entladen:
+# Unload Command:
 unload-usage: '§cBenutzung: §7/mw unload <welt>'
 unload-levelnotexists: '§cDie Welt {%0} existiert nicht!'
 unload-unloaded: '§cWelt konnte nicht entladen werden!'
 unload-default: '§cUnable to unload default level.'
 unload-done: '§aWelt entladen!'
 
-# Befehl löschen:
-delete-use: '§cBenutzung: §7/mw delete <welt>'
+# Delete Command:
+delete-usage: '§cBenutzung: §7/mw delete <welt>'
 delete-levelnotexists: '§cDie Welt {%0} existiert nicht!'
 delete-done: '§aWelt wurde gelöscht! ({%0} Dateien wurden entfernt.)'
 
@@ -98,7 +98,7 @@ duplicate-done: 'World {%0} duplicated, name of the duplicate is {%1}'
 setspawn-success: '§a{%0} world spawn set to {%1}'
 
 # Set Lobby
-setlobby-errror: '§cCould not update default world: {%0}'
+setlobby-error: '§cCould not update default world: {%0}'
 setlobby-success: '§aServer lobby position set to {%0} at {%1}'
 
 # Forms

@@ -45,7 +45,7 @@ class LoadSubCommand extends BaseSubCommand {
 		$worldName = $args["worldName"];
 
 		if(!Server::getInstance()->getWorldManager()->isWorldGenerated($worldName)) {
-			$sender->sendMessage(MultiWorld::getPrefix() . LanguageManager::translateMessage($sender, "load-levelnotexists", [$worldName]));
+			$sender->sendMessage(MultiWorld::getPrefix() . LanguageManager::translateMessage($sender, "load-notexists", [$worldName]));
 			return;
 		}
 

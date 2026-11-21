@@ -31,7 +31,6 @@ use pocketmine\command\CommandSender;
 use pocketmine\Server;
 use pocketmine\world\World;
 use function file_exists;
-use function str_replace;
 
 class DeleteSubCommand extends BaseSubCommand {
 	protected function prepare(): void {
@@ -48,7 +47,7 @@ class DeleteSubCommand extends BaseSubCommand {
 		$worldName = $args["worldName"];
 
 		if(!Server::getInstance()->getWorldManager()->isWorldGenerated($worldName) || !file_exists(Server::getInstance()->getDataPath() . "worlds/$worldName")) {
-			$sender->sendMessage(MultiWorld::getPrefix() . str_replace("%1", $worldName, LanguageManager::translateMessage($sender, "delete-levelnotexists")));
+			$sender->sendMessage(MultiWorld::getPrefix() . LanguageManager::translateMessage($sender, "delete-levelnotexists", [$worldName]));
 			return;
 		}
 

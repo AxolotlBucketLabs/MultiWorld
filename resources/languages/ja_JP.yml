@@ -22,13 +22,13 @@ help-9: '§2/mw manage §fワールド管理用のフォームを表示'
 help-10: '§2/mw rename §fワールド名を変更'
 
 help-11: '§2/mw duplicate §fDuplicates a world'
-help-12: '§2/mw setspawan §fUpdate world spawn'
+help-12: '§2/mw setspawn §fUpdate world spawn'
 help-13: '§2/mw setlobby §fUpdate server lobby position'
 
 # Create Command:
 create-usage: '§c使用方法: §7/mw create <ワールド名> [シード値] [ジェネレータ名]'
 create-exists: '§cワールド {%0} は既に存在します!'
-create-gennotexists: '§c%1 という名前のジェネレータは存在しません'
+create-gennotexists: '§c{%0} という名前のジェネレータは存在しません'
 create-generating: '§aワールド {%0} を生成中です'
 create-done: 'ワールド {%0} はシード値 {%1} , ジェネレータ名 {%2} によって生成されました'
 
@@ -46,7 +46,7 @@ list-done: '§a全ワールド ({%0}):'
 
 # Load Command:
 load-usage: '§c使用方法: §7/mw load <ワールド名>'
-load-levelnotexists: '§cワールド {%0} は存在しません!'
+load-notexists: '§cワールド {%0} は存在しません!'
 load-loaded: '§c既に読み込まれたワールドを再度読み込むことはできません!'
 load-done: '§aワールドを読み込みました'
 load-error: '§cAn error occurred whilst loading the world: {%0}'
@@ -98,7 +98,7 @@ duplicate-done: 'ワールド名 {%0} のコピー {%1} を作成しました'
 setspawn-success: '§a{%0} world spawn set to {%1}'
 
 # Set Lobby
-setlobby-errror: '§cCould not update default world: {%0}'
+setlobby-error: '§cCould not update default world: {%0}'
 setlobby-success: '§aServer lobby position set to {%0} at {%1}'
 
 # Forms

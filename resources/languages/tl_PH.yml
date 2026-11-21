@@ -16,13 +16,13 @@ help-4: '§2/mw load §fLoads a world'
 help-5: '§2/mw unload §fUnloads a world'
 
 help-6: '§2/mw delete §fTanggalin ang mundo'
-help-7: '§2/mw info §fIpapakita ang impormasyon tunkol sa mundo'
+help-7: '§2/mw info §fIpapakita ang impormasyon tungkol sa mundo'
 help-8: '§2/mw gamerule §fI-Manage ang mga gamerules sa level'
 help-9: '§2/mw manage §fI-papakita ang form para ma-manage ang mga mundo'
 help-10: '§2/mw rename §fI-pangalan ulit ang mundo'
 
 help-11: '§2/mw duplicate §fDuplicates a world'
-help-12: '§2/mw setspawan §fUpdate world spawn'
+help-12: '§2/mw setspawn §fUpdate world spawn'
 help-13: '§2/mw setlobby §fUpdate server lobby position'
 
 # Create Command:
@@ -98,7 +98,7 @@ duplicate-done: 'World {%0} duplicated, name of the duplicate is {%1}'
 setspawn-success: '§a{%0} world spawn set to {%1}'
 
 # Set Lobby
-setlobby-errror: '§cCould not update default world: {%0}'
+setlobby-error: '§cCould not update default world: {%0}'
 setlobby-success: '§aServer lobby position set to {%0} at {%1}'
 
 # Forms

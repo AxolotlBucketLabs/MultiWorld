@@ -22,7 +22,7 @@ help-9: '§2/mw manage §fExibe formulário para gerenciar os mundos'
 help-10: '§2/mw rename §fRenomeia o mundo'
 
 help-11: '§2/mw duplicate §fDuplicates a world'
-help-12: '§2/mw setspawan §fUpdate world spawn'
+help-12: '§2/mw setspawn §fUpdate world spawn'
 help-13: '§2/mw setlobby §fUpdate server lobby position'
 
 # Create Command:
@@ -92,13 +92,13 @@ rename-error: '§cCould not rename the world (Access denied)'
 duplicate-usage: '§cUse: §7/mw duplicate <mundo> [novoNome]'
 duplicate-exists: '§c O mundo {%0} já existe.'
 duplicate-levelnotfound: '§cO mundo {%0} não existe.'
-duplicate-done: '&aO mundo {%0} foi duplicado com o nome de {%1}'
+duplicate-done: '§aO mundo {%0} foi duplicado com o nome de {%1}'
 
 # Set Spawn
 setspawn-success: '§a{%0} world spawn set to {%1}'
 
 # Set Lobby
-setlobby-errror: '§cCould not update default world: {%0}'
+setlobby-error: '§cCould not update default world: {%0}'
 setlobby-success: '§aServer lobby position set to {%0} at {%1}'
 
 # Forms

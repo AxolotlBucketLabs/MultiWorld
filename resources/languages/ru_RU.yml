@@ -22,7 +22,7 @@ help-9: '§2/mw manage §fОтображает форму для управле�
 help-10: '§2/mw rename §fПереименовать мир'
 
 help-11: '§2/mw duplicate §fДублирувать мир'
-help-12: '§2/mw setspawan §fUpdate world spawn'
+help-12: '§2/mw setspawn §fUpdate world spawn'
 help-13: '§2/mw setlobby §fUpdate server lobby position'
 
 # Create Command:
@@ -41,12 +41,12 @@ teleport-done-2: '§aИгрок {%1} был телепортирован в ми
 teleport-playernotexists: '§cИгрок не найден!'
 teleport-error: '§cAn error occurred whilst teleporting player: {%0}'
 
-# List Command
+# List Command:
 list-done: 'Миры ({%0}):'
 
 # Load Command:
 load-usage: '§cИспользование: §7/mw load <мир>'
-load-levelnotexists: '§cМир {%0} не существует!'
+load-notexists: '§cМир {%0} не существует!'
 load-loaded: '§cМир уже загружен!'
 load-done: '§aМир был загружен!'
 load-error: '§cAn error occurred whilst loading the world: {%0}'
@@ -59,7 +59,7 @@ unload-default: '§cUnable to unload default level.'
 unload-done: '§aМир был выгружен!'
 
 # Delete Command:
-delete-use: '§cИспользуйте: §7/mw delete <мир>'
+delete-usage: '§cИспользуйте: §7/mw delete <мир>'
 delete-levelnotexists: '§cМира не существует!'
 delete-done: '§aМир был удален!'
 
@@ -98,7 +98,7 @@ duplicate-done: 'Мир {%0} дублируется, имя дубликата {
 setspawn-success: '§a{%0} world spawn set to {%1}'
 
 # Set Lobby
-setlobby-errror: '§cCould not update default world: {%0}'
+setlobby-error: '§cCould not update default world: {%0}'
 setlobby-success: '§aServer lobby position set to {%0} at {%1}'
 
 # Forms
