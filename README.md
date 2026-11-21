@@ -4,7 +4,7 @@ MultiWorld adds world management commands, custom generators, and an in-game for
 
 AxolotlBucketLabs maintains this fork of [CzechPMDevs/MultiWorld](https://github.com/CzechPMDevs/MultiWorld).
 
-[![Build and validate](https://github.com/AxolotlBucketLabs/MultiWorld/actions/workflows/build.yml/badge.svg)](https://github.com/AxolotlBucketLabs/MultiWorld/actions/workflows/build.yml)
+[![Build and validate](https://github.com/AxolotlBucketLabs/MultiWorld/actions/workflows/build.yml/badge.svg)](https://github.com/AxolotlBucketLabs/MultiWorld/actions/workflows/build.yml) [![License](https://img.shields.io/github/license/AxolotlBucketLabs/MultiWorld)](LICENSE) [![Discord](https://img.shields.io/discord/1568295845374206052?label=Discord&logo=discord&logoColor=white&color=5865F2)](https://discord.gg/Pk4FrNvHnM)
 
 ## Requirements
 
