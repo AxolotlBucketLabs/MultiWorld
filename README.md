@@ -94,6 +94,6 @@ The `Build and validate` workflow runs on pushes, pull requests, and manual disp
 
 MultiWorld is licensed under [GNU GPL-3.0-or-later](LICENSE).
 
-The Overworld and Nether generators were ported from [Glowstone](https://github.com/GlowstoneMC/Glowstone) by [Muqsit](https://github.com/Muqsit). Glowstone is licensed under the [MIT License](https://github.com/GlowstoneMC/Glowstone/blob/dev/LICENSE).
+The Overworld and Nether generators were ported from [Glowstone](https://github.com/GlowstoneMC/Glowstone) by [Muqsit](https://github.com/Muqsit). The Glowstone copyright and MIT license notice is included in [`resources/licenses/Glowstone-MIT.txt`](resources/licenses/Glowstone-MIT.txt).
 
 The icon is by [Freepik](https://www.freepik.com/) from [Flaticon](https://www.flaticon.com/), under [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/).
