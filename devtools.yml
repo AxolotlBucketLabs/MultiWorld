@@ -1,0 +1,8 @@
+import-poggit-libraries: false
+virions:
+  - name: Commando
+    version: ^4.0.0
+  - name: libpmform
+    version: ^1.1.0
+  - name: VanillaGenerator
+    version: ^0.0.6

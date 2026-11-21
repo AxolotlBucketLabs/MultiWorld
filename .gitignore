@@ -1,4 +1,6 @@
 .idea
 vendor
-out
+.devtools-dependencies
+.devtools-virions
+build
 .php_cs.cache
