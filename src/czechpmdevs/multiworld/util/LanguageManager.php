@@ -60,8 +60,8 @@ class LanguageManager {
 		LanguageManager::$defaultLang = $defaultLang;
 		if($langResources = glob(MultiWorld::getInstance()->getDataFolder() . "/languages/*.yml")) {
 			foreach($langResources as $langResource) {
-				$fileContents = yaml_parse_file($langResource);
-				if(!is_array($fileContents)) {
+				$fileContents = self::parseLanguage(yaml_parse_file($langResource));
+				if($fileContents === null) {
 					MultiWorld::getInstance()->getLogger()->debug("Could not load language file ($langResource) - invalid data given");
 					continue;
 				}
@@ -71,13 +71,33 @@ class LanguageManager {
 		}
 
 		if(!isset(LanguageManager::$languages[LanguageManager::$defaultLang])) {
-			// @phpstan-ignore-next-line
-			LanguageManager::$languages[LanguageManager::$defaultLang] = json_decode((string)base64_decode(LanguageManager::DEFAULT_LANGUAGE, true), true); // it should fix bug
+			$defaultLanguage = self::parseLanguage(json_decode((string)base64_decode(LanguageManager::DEFAULT_LANGUAGE, true), true));
+			if($defaultLanguage === null) {
+				throw new LogicException("Could not load the default language");
+			}
+			LanguageManager::$languages[LanguageManager::$defaultLang] = $defaultLanguage;
 		}
 
 		if(isset($configuration["force-default-language"])) {
 			LanguageManager::$forceDefaultLang = (bool)$configuration["force-default-language"];
 		}
+	}
+
+	/** @return array<string, string>|null */
+	private static function parseLanguage(mixed $data): ?array {
+		if(!is_array($data)) {
+			return null;
+		}
+
+		$language = [];
+		foreach($data as $key => $value) {
+			if(!is_string($key) || !is_string($value)) {
+				return null;
+			}
+			$language[$key] = $value;
+		}
+
+		return $language;
 	}
 
 	/**

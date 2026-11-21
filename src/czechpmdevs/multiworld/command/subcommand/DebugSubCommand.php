@@ -45,17 +45,18 @@ class DebugSubCommand extends BaseSubCommand {
 			throw new AssumptionFailedError("Sender is not a player");
 		}
 
-		$position = $sender->getPosition()->floor();
-		$sender->sendMessage("Current position: {$position->getX()}, {$position->getY()}, {$position->getZ()}");
+		$position = $sender->getPosition();
+		$x = $position->getFloorX();
+		$y = $position->getFloorY();
+		$z = $position->getFloorZ();
+		$sender->sendMessage("Current position: $x, $y, $z");
 
-		$chunkX = $position->getX() >> Chunk::COORD_BIT_SIZE;
-		$chunkZ = $position->getZ() >> Chunk::COORD_BIT_SIZE;
+		$chunkX = $x >> Chunk::COORD_BIT_SIZE;
+		$chunkZ = $z >> Chunk::COORD_BIT_SIZE;
 		$sender->sendMessage("Current chunk position: $chunkX, $chunkZ");
 
-		$chunk = $sender->getPosition()->getWorld()->getChunk($chunkX, $chunkZ);
-		$x = $position->getFloorX() & Chunk::COORD_MASK;
-		$z = $position->getFloorZ() & Chunk::COORD_MASK;
-		$id = $chunk?->getBiomeId($x, min($position->getFloorY(), World::Y_MAX - 1), $z) ?? 0;
+		$chunk = $position->getWorld()->getChunk($chunkX, $chunkZ);
+		$id = $chunk?->getBiomeId($x & Chunk::COORD_MASK, min($y, World::Y_MAX - 1), $z & Chunk::COORD_MASK) ?? 0;
 		$biome = BiomeRegistry::getInstance()->getBiome($id);
 		$sender->sendMessage("Current biome: [$id] {$biome->getName()}");
 	}

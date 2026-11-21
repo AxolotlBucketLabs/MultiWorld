@@ -23,6 +23,7 @@ declare(strict_types=1);
 namespace czechpmdevs\multiworld\util;
 
 use czechpmdevs\multiworld\MultiWorld;
+use LogicException;
 use function file_get_contents;
 use function file_put_contents;
 use function is_file;
@@ -63,8 +64,11 @@ class ConfigManager {
 			MultiWorld::getInstance()->getLogger()->debug("Updating language resources to plugin-compatible version " . self::LANGUAGE_VERSION);
 		}
 
-		// Loads prefix
-		ConfigManager::$prefix = MultiWorld::getInstance()->getConfig()->get("prefix") . " §a";
+		$prefix = MultiWorld::getInstance()->getConfig()->get("prefix");
+		if(!is_string($prefix)) {
+			throw new LogicException("Could not fetch prefix from config.yml");
+		}
+		ConfigManager::$prefix = $prefix . " §a";
 	}
 
 	private function saveConfig(bool $replace = false): void {

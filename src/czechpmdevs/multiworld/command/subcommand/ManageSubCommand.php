@@ -34,8 +34,9 @@ use pocketmine\Server;
 use function array_filter;
 use function array_map;
 use function array_values;
-use function is_array;
+use function is_int;
 use function is_numeric;
+use function is_string;
 use function time;
 use function trim;
 
@@ -74,16 +75,17 @@ class ManageSubCommand extends BaseSubCommand {
 					$customForm->addDropdown("Generator", $generators = ["Normal", "Custom", "Nether", "End", "Flat", "Void", "SkyBlock"]);
 
 					$customForm->setCallback(static function(Player $player, FormResponse $response) use ($generators): void {
-						$data = $response->getData();
-						if(!is_array($data) || $data[1] === "" || ($data[2] != "" && !is_numeric($data[2])) || !isset($generators[$data[3]])) {
+						$name = self::getFormInput($response, 1);
+						$seedInput = self::getFormInput($response, 2);
+						$generator = self::getDropdownSelection($response, 3, $generators);
+						if($name === null || trim($name) === "" || $seedInput === null || (trim($seedInput) !== "" && !is_numeric($seedInput)) || $generator === null) {
 							$player->sendMessage(LanguageManager::translateMessage($player, "forms-invalid"));
 							return;
 						}
 
-						$name = $data[1];
-						$seed = trim($data[2]) == "" ? time() : (int)$data[2];
+						$seed = trim($seedInput) === "" ? time() : (int)$seedInput;
 
-						$cmd = "mw create \"$name\" \"$seed\" \"{$generators[$data[3]]}\"";
+						$cmd = "mw create \"$name\" \"$seed\" \"$generator\"";
 						Server::getInstance()->dispatchCommand($player, $cmd);
 					});
 
@@ -94,13 +96,13 @@ class ManageSubCommand extends BaseSubCommand {
 					$customForm->addDropdown("World name", $worlds = WorldUtils::getAllWorlds());
 
 					$customForm->setCallback(static function(Player $player, FormResponse $response) use ($worlds): void {
-						$data = $response->getData();
-						if(!is_array($data) || $data[1] === "") {
+						$world = self::getDropdownSelection($response, 1, $worlds);
+						if($world === null) {
 							$player->sendMessage(LanguageManager::translateMessage($player, "forms-invalid"));
 							return;
 						}
 
-						Server::getInstance()->dispatchCommand($player, "mw delete \"{$worlds[$data[1]]}\"");
+						Server::getInstance()->dispatchCommand($player, "mw delete \"$world\"");
 					});
 
 					$player->sendForm($customForm);
@@ -111,13 +113,13 @@ class ManageSubCommand extends BaseSubCommand {
 					$customForm->addDropdown("Worlds", $worlds = WorldUtils::getAllWorlds());
 
 					$customForm->setCallback(static function(Player $player, FormResponse $response) use ($worlds): void {
-						$data = $response->getData();
-						if(!is_array($data) || !isset($data[1])) {
+						$world = self::getDropdownSelection($response, 1, $worlds);
+						if($world === null) {
 							$player->sendMessage(LanguageManager::translateMessage($player, "forms-invalid"));
 							return;
 						}
 
-						Server::getInstance()->dispatchCommand($player, "mw info \"{$worlds[$data[1]]}\"");
+						Server::getInstance()->dispatchCommand($player, "mw info \"$world\"");
 					});
 
 					$player->sendForm($customForm);
@@ -128,18 +130,13 @@ class ManageSubCommand extends BaseSubCommand {
 					$customForm->addDropdown("World to load", $worlds = array_values(array_filter(WorldUtils::getAllWorlds(), fn(string $worldName) => !Server::getInstance()->getWorldManager()->isWorldLoaded($worldName))));
 
 					$customForm->setCallback(static function(Player $player, FormResponse $response) use ($worlds): void {
-						$data = $response->getData();
-						if(!is_array($data)) {
+						$world = self::getDropdownSelection($response, 1, $worlds);
+						if($world === null) {
 							$player->sendMessage(LanguageManager::translateMessage($player, "forms-invalid"));
 							return;
 						}
 
-						if(!isset($worlds[$data[1]])) {
-							$player->sendMessage(LanguageManager::translateMessage($player, "forms-invalid"));
-							return;
-						}
-
-						Server::getInstance()->dispatchCommand($player, "mw load \"{$worlds[$data[1]]}\"");
+						Server::getInstance()->dispatchCommand($player, "mw load \"$world\"");
 					});
 
 					$player->sendForm($customForm);
@@ -150,18 +147,13 @@ class ManageSubCommand extends BaseSubCommand {
 					$customForm->addDropdown("World to unload", $worlds = array_values(array_filter(WorldUtils::getAllWorlds(), fn(string $worldName) => Server::getInstance()->getWorldManager()->isWorldLoaded($worldName))));
 
 					$customForm->setCallback(static function(Player $player, FormResponse $response) use ($worlds): void {
-						$data = $response->getData();
-						if(!is_array($data)) {
+						$world = self::getDropdownSelection($response, 1, $worlds);
+						if($world === null) {
 							$player->sendMessage(LanguageManager::translateMessage($player, "forms-invalid"));
 							return;
 						}
 
-						if(!isset($worlds[$data[1]])) {
-							$player->sendMessage(LanguageManager::translateMessage($player, "forms-invalid"));
-							return;
-						}
-
-						Server::getInstance()->dispatchCommand($player, "mw unload {$worlds[$data[1]]}");
+						Server::getInstance()->dispatchCommand($player, "mw unload \"$world\"");
 					});
 
 					$player->sendForm($customForm);
@@ -172,18 +164,13 @@ class ManageSubCommand extends BaseSubCommand {
 					$customForm->addDropdown("World", $worlds = WorldUtils::getAllWorlds());
 
 					$customForm->setCallback(static function(Player $player, FormResponse $response) use ($worlds): void {
-						$data = $response->getData();
-						if(!is_array($data)) {
+						$world = self::getDropdownSelection($response, 1, $worlds);
+						if($world === null) {
 							$player->sendMessage(LanguageManager::translateMessage($player, "forms-invalid"));
 							return;
 						}
 
-						if(!isset($worlds[$data[1]])) {
-							$player->sendMessage(LanguageManager::translateMessage($player, "forms-invalid"));
-							return;
-						}
-
-						Server::getInstance()->dispatchCommand($player, "mw teleport \"{$worlds[$data[1]]}\"");
+						Server::getInstance()->dispatchCommand($player, "mw teleport \"$world\"");
 					});
 
 					$player->sendForm($customForm);
@@ -194,19 +181,15 @@ class ManageSubCommand extends BaseSubCommand {
 					$customForm->addDropdown("Player", $players = array_values(array_map(fn(Player $player) => $player->getName(), Server::getInstance()->getOnlinePlayers())));
 					$customForm->addDropdown("World", $worlds = WorldUtils::getAllWorlds());
 
-					$customForm->setCallback(static function(Player $player, FormResponse $response) use ($players, $worlds) {
-						$data = $response->getData();
-						if(!is_array($data)) {
+					$customForm->setCallback(static function(Player $player, FormResponse $response) use ($players, $worlds): void {
+						$target = self::getDropdownSelection($response, 1, $players);
+						$world = self::getDropdownSelection($response, 2, $worlds);
+						if($target === null || $world === null) {
 							$player->sendMessage(LanguageManager::translateMessage($player, "forms-invalid"));
 							return;
 						}
 
-						if(!isset($players[$data[1]]) || !isset($worlds[$data[2]])) {
-							$player->sendMessage(LanguageManager::translateMessage($player, "forms-invalid"));
-							return;
-						}
-
-						Server::getInstance()->dispatchCommand($player, "mw teleport \"{$worlds[$data[2]]}\" \"{$players[$data[1]]}\"");
+						Server::getInstance()->dispatchCommand($player, "mw teleport \"$world\" \"$target\"");
 					});
 
 					$player->sendForm($customForm);
@@ -221,5 +204,31 @@ class ManageSubCommand extends BaseSubCommand {
 		});
 
 		$sender->sendForm($form);
+	}
+
+	private static function getFormInput(FormResponse $response, int $index): ?string {
+		$data = $response->getData();
+		if(!is_array($data)) {
+			return null;
+		}
+
+		$value = $data[$index] ?? null;
+		return is_string($value) ? $value : null;
+	}
+
+	/** @param array<array-key, mixed> $options */
+	private static function getDropdownSelection(FormResponse $response, int $index, array $options): ?string {
+		$data = $response->getData();
+		if(!is_array($data)) {
+			return null;
+		}
+
+		$selection = $data[$index] ?? null;
+		if(!is_int($selection)) {
+			return null;
+		}
+
+		$option = $options[$selection] ?? null;
+		return is_string($option) ? $option : null;
 	}
 }
