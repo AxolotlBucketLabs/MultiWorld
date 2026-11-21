@@ -35,9 +35,9 @@ use function version_compare;
 
 class ConfigManager {
 	private const CONFIG_VERSION = "2.0.0.0";
-	private const LANGUAGE_VERSION = "2.1.0.4";
+	private const LANGUAGE_VERSION = "2.1.0.5";
 
-	private const LANGUAGES_AVAILABLE = ["cs_CZ", "de_DE", "en_US", "es_ES", "fr_FR", "id_ID", "ja_JP", "ko_KR", "pt_BR", "ru_RU", "th_TH", "tl_PH", "tr_TR", "vi_VN", "zh_CN"];
+	private const LANGUAGES_AVAILABLE = ["ces", "chs", "deu", "eng", "fra", "ind", "jpn", "kor", "por", "rus", "spa", "tgl", "tha", "tur", "vie"];
 
 	private static string $prefix;
 

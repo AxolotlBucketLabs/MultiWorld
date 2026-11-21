@@ -1,8 +1,7 @@
 ---
-### English language file by @lcyLand, changes may be needed.
+### Credits: @lcyLand
 
 ## Commands:
-
 not-perms: '§cYou do not have permission to use this command'
 default-usage: '§cUsage: §7/mw help'
 ingame: '§cThis command can be only used in game.'

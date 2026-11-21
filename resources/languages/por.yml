@@ -1,11 +1,10 @@
 ---
-### Portuguese language file made by @LewBr (http://twitter.com/lew_br) && @JuqnDev (https://twitter.com/____Juqn____).
-### Traduções ao Português feito por Leonardo S. William (LewBr) e Juan E. (JuqnDev)
+### Credits: @LewBr, @JuqnDev
 
 ## Commands:
 not-perms: '§cVocê não tem permissão para usar este comando'
-default-usage: '§cUse: §7/mw help'
-ingame: '§cThis command can be only used in game.'
+default-usage: '§cUso: §7/mw help'
+ingame: '§cEste comando só pode ser usado dentro do jogo.'
 
 # Help Command:
 help: '§2--- Mostrando a página de ajuda do MultiWorld {%0} de {%1} (/mw help <página>) ---'
@@ -21,51 +20,51 @@ help-8: '§2/mw gamerule §fGerenciar as regras de um mundo'
 help-9: '§2/mw manage §fExibe formulário para gerenciar os mundos'
 help-10: '§2/mw rename §fRenomeia o mundo'
 
-help-11: '§2/mw duplicate §fDuplicates a world'
-help-12: '§2/mw setspawn §fUpdate world spawn'
-help-13: '§2/mw setlobby §fUpdate server lobby position'
+help-11: '§2/mw duplicate §fDuplica um mundo'
+help-12: '§2/mw setspawn §fDefine o ponto de spawn do mundo'
+help-13: '§2/mw setlobby §fDefine a posição do lobby do servidor'
 
 # Create Command:
-create-usage: '§cUse: §7/mw create <nome> [semente] [gerador]'
+create-usage: '§cUso: §7/mw create <nome> [semente] [gerador]'
 create-exists: '§cO nível {%0} já está gerado!'
 create-gennotexists: '§cGerador {%0} não encontrado.'
 create-generating: '§aGerando o mundo: {%0}'
 create-done: '{%0} mundos foram gerados usando a semente: {%1} e o gerador: {%2}.'
 
 # Teleport Command:
-teleport-usage: '§cUse: §7/mw teleport <mundo> [jogador]'
+teleport-usage: '§cUso: §7/mw teleport <mundo> [jogador]'
 teleport-levelnotexists: '§cO mundo {%0} ainda não foi criado. Tente /mw para criar um mundo.'
 teleport-load: 'Carregando o mundo {%0}...'
 teleport-done-1: '§aVocê foi teleportado para {%0}.'
 teleport-done-2: '§aO jogador {%1} foi teleportado para {%0}.'
 teleport-playernotexists: '§cO jogador não existe.'
-teleport-error: '§cAn error occurred whilst teleporting player: {%0}'
+teleport-error: '§cOcorreu um erro ao teleportar o jogador: {%0}'
 
 # List Command:
 list-done: '§aMundos ({%0}):'
 
 # Load Command:
-load-usage: '§cUse: §7/mw load <mundo>'
+load-usage: '§cUso: §7/mw load <mundo>'
 load-notexists: '§cO mundo {%0} não existe.'
 load-loaded: '§cNão foi possível carregar o mundo.'
 load-done: '§aMundo carregado.'
-load-error: '§cAn error occurred whilst loading the world: {%0}'
+load-error: '§cOcorreu um erro ao carregar o mundo: {%0}'
 
 # Unload Command:
-unload-usage: '§cUse: §7/mw unload <mundo>'
+unload-usage: '§cUso: §7/mw unload <mundo>'
 unload-levelnotexists: '§c{%0} não existe.'
 unload-unloaded: '§cIncapaz de descarregar o mundo.'
-unload-default: '§cUnable to unload default level.'
+unload-default: '§cNão é possível descarregar o mundo padrão.'
 unload-done: '§aMundo descarregado.'
 
 # Delete Command:
-delete-usage: '§cUse: §7/mw delete <mundo>'
+delete-usage: '§cUso: §7/mw delete <mundo>'
 delete-levelnotexists: '§cO mundo não existe.'
 delete-done: '§aMundo excluído. ({%0} arquivos removidos.)'
 
 # Info Command:
 info-levelnotexists: '§c{%0} não existe.'
-info-unloaded: '§cCould not fetch info from the world {%0}, due to the world could not be loaded.'
+info-unloaded: '§cNão foi possível obter informações do mundo {%0}, pois não foi possível carregá-lo.'
 info: '§a--- {%0} ---'
 info-name: '§7Nome: {%0}'
 info-folderName: '§7Nome da pasta: {%0}'
@@ -75,31 +74,31 @@ info-seed: '§7Semente: {%0}'
 info-time: '§7Tempo/Horário: {%0}'
 
 # Gamerule Command:
-gamerule-usage: '§cUse: §7/mw gamerule <list|gamerule> [true|false] [mundo]'
-gamerule-list: '§aAvailable game rules: {%0}'
+gamerule-usage: '§cUso: §7/mw gamerule <list|gamerule> [true|false] [mundo]'
+gamerule-list: '§aRegras de jogo disponíveis: {%0}'
 gamerule-levelnotfound: '§cMundo {%0} não encontrado.'
 gamerule-notexists: '§cRegra {%0} não existe.'
 gamerule-done: '§aA regra {%0} no mundo {%1} foi alterada para {%2}.'
 
 # Rename Command
-rename-usage: '§cUse: §7/mw rename <de> <para>'
+rename-usage: '§cUso: §7/mw rename <de> <para>'
 rename-exists: '§cO nível com o nome {%0} já existe.'
 rename-levelnotfound: '§cO nível {%0} não existe.'
 rename-done: '§aO nome do nível {%0} foi alterado para {%1}.'
-rename-error: '§cCould not rename the world (Access denied)'
+rename-error: '§cNão foi possível renomear o mundo (acesso negado).'
 
 # Duplicate Command
-duplicate-usage: '§cUse: §7/mw duplicate <mundo> [novoNome]'
+duplicate-usage: '§cUso: §7/mw duplicate <mundo> [novoNome]'
 duplicate-exists: '§c O mundo {%0} já existe.'
 duplicate-levelnotfound: '§cO mundo {%0} não existe.'
 duplicate-done: '§aO mundo {%0} foi duplicado com o nome de {%1}'
 
 # Set Spawn
-setspawn-success: '§a{%0} world spawn set to {%1}'
+setspawn-success: '§aO ponto de spawn do mundo {%0} foi definido em {%1}.'
 
 # Set Lobby
-setlobby-error: '§cCould not update default world: {%0}'
-setlobby-success: '§aServer lobby position set to {%0} at {%1}'
+setlobby-error: '§cNão foi possível atualizar o mundo padrão: {%0}'
+setlobby-success: '§aA posição do lobby do servidor no mundo {%0} foi definida em {%1}.'
 
 # Forms
 forms-invalid: '§cResultado inválido.'

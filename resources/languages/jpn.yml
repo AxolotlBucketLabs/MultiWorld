@@ -1,11 +1,10 @@
 ---
-### Japanese language file by @fuyutsuki
+### Credits: @fuyutsuki
 
 ## Commands:
-
 not-perms: '§cこのコマンドを実行する権限がありません!'
 default-usage: '§c使用方法: §7/mw help'
-ingame: '§cThis command can be only used in game.'
+ingame: '§cこのコマンドはゲーム内でのみ使用できます。'
 
 # Help Command:
 help: '§2--- §fMultiWorld ヘルプ ページ({%0}/{%1}) §2---'
@@ -21,9 +20,9 @@ help-8: '§2/mw gamerule §fワールドのゲームルールを変更'
 help-9: '§2/mw manage §fワールド管理用のフォームを表示'
 help-10: '§2/mw rename §fワールド名を変更'
 
-help-11: '§2/mw duplicate §fDuplicates a world'
-help-12: '§2/mw setspawn §fUpdate world spawn'
-help-13: '§2/mw setlobby §fUpdate server lobby position'
+help-11: '§2/mw duplicate §fワールドを複製'
+help-12: '§2/mw setspawn §fワールドのスポーン地点を設定'
+help-13: '§2/mw setlobby §fサーバーのロビー位置を設定'
 
 # Create Command:
 create-usage: '§c使用方法: §7/mw create <ワールド名> [シード値] [ジェネレータ名]'
@@ -39,7 +38,7 @@ teleport-load: 'ワールド {%0} を読み込み中です'
 teleport-done-1: '§aワールド {%0} にテレポートしました'
 teleport-done-2: '§aプレイヤー名 {%1} をワールド {%0} にテレポートしました'
 teleport-playernotexists: '§c指定されたプレイヤーは存在しません!'
-teleport-error: '§cAn error occurred whilst teleporting player: {%0}'
+teleport-error: '§cプレイヤーのテレポート中にエラーが発生しました: {%0}'
 
 # List Command:
 list-done: '§a全ワールド ({%0}):'
@@ -49,13 +48,13 @@ load-usage: '§c使用方法: §7/mw load <ワールド名>'
 load-notexists: '§cワールド {%0} は存在しません!'
 load-loaded: '§c既に読み込まれたワールドを再度読み込むことはできません!'
 load-done: '§aワールドを読み込みました'
-load-error: '§cAn error occurred whilst loading the world: {%0}'
+load-error: '§cワールドの読み込み中にエラーが発生しました: {%0}'
 
 # Unload Command:
 unload-usage: '§c使用方法: §7/mw unload <ワールド名>'
 unload-levelnotexists: '§cワールド {%0} は存在しません!'
 unload-unloaded: '§c読み込まれていないワールドを読み込み解除することはできません!'
-unload-default: '§cUnable to unload default level.'
+unload-default: '§cデフォルトワールドはアンロードできません。'
 unload-done: '§aワールドの読み込みを解除しました'
 
 # Delete Command:
@@ -65,7 +64,7 @@ delete-done: '§aワールドを削除しました ({%0} つのファイルを�
 
 # Info Command:
 info-levelnotexists: '§cワールド {%0} は存在しません!'
-info-unloaded: '§cCould not fetch info from the world {%0}, due to the world could not be loaded.'
+info-unloaded: '§cワールド {%0} を読み込めなかったため、情報を取得できませんでした。'
 info: '§a--- {%0} ---'
 info-name: '§7ワールド名: {%0}'
 info-folderName: '§7フォルダ名: {%0}'
@@ -86,7 +85,7 @@ rename-usage: '§c使用方法: §7/mw rename <元のワールド名> <変更先
 rename-exists: '§c{%0} という名前のワールドは既に存在します'
 rename-levelnotfound: '§cワールド {%0} は存在しません!'
 rename-done: '§aワールド名 {%0} を {%1} に変更しました'
-rename-error: '§cCould not rename the world (Access denied)'
+rename-error: '§cワールド名を変更できませんでした (アクセスが拒否されました)。'
 
 # Duplicate Command
 duplicate-usage: '§c使用方法: §7/mw duplicate <ワールド名> [コピーワールド名]'
@@ -95,11 +94,11 @@ duplicate-levelnotfound: '§cワールド {%0} は存在しません!'
 duplicate-done: 'ワールド名 {%0} のコピー {%1} を作成しました'
 
 # Set Spawn
-setspawn-success: '§a{%0} world spawn set to {%1}'
+setspawn-success: '§aワールド {%0} のスポーン地点を {%1} に設定しました。'
 
 # Set Lobby
-setlobby-error: '§cCould not update default world: {%0}'
-setlobby-success: '§aServer lobby position set to {%0} at {%1}'
+setlobby-error: '§cデフォルトワールドを更新できませんでした: {%0}'
+setlobby-success: '§aワールド {%0} のサーバーロビー位置を {%1} に設定しました。'
 
 # Forms
 forms-invalid: '§cフォームに入力した値が異常です'

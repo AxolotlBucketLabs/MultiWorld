@@ -1,14 +1,13 @@
 ---
-### Bahasa Indonesia file oleh @WooWBoom, @brokiem, @keenanyafiqy, perubahan mungkin diperlukan.
+### Credits: @WooWBoom, @brokiem, @keenanyafiqy
 
 ## Commands:
-
 not-perms: '§cAnda tidak memiliki izin untuk menggunakan perintah ini'
 default-usage: '§cCara penggunaan: §7/mw help'
-ingame: '§cThis command can be only used in game.'
+ingame: '§cPerintah ini hanya dapat digunakan saat bermain.'
 
 # Help Command:
-help: '§2--- Menampilkan halaman bantuan MultiWorld {%0} dari {%1} (/mw help <page>) ---'
+help: '§2--- Menampilkan halaman bantuan MultiWorld {%0} dari {%1} (/mw help <halaman>) ---'
 help-1: '§2/mw create §fCiptakan dunia'
 help-2: '§2/mw teleport §fTeleportasi ke dunia'
 help-3: '§2/mw list §fMenampilkan daftar semua dunia'
@@ -22,8 +21,8 @@ help-9: '§2/mw manage §fMenampilkan form untuk mengelola dengan dunia'
 help-10: '§2/mw rename §fUbah nama dunia'
 
 help-11: '§2/mw duplicate §fMenduplikat dunia'
-help-12: '§2/mw setspawn §fUpdate world spawn'
-help-13: '§2/mw setlobby §fUpdate server lobby position'
+help-12: '§2/mw setspawn §fMengatur titik spawn dunia'
+help-13: '§2/mw setlobby §fMengatur posisi lobi server'
 
 # Create Command:
 create-usage: '§cPenggunaan: §7/mw create <nama dunia> [benih] [generator]'
@@ -39,7 +38,7 @@ teleport-load: 'Memuat dunia {%0} ...'
 teleport-done-1: '§aAnda telah diteleportasikan ke {%0}.'
 teleport-done-2: '§aPemain {%1} diteleportasikan ke {%0}.'
 teleport-playernotexists: '§cPemain tidak ada.'
-teleport-error: '§cAn error occurred whilst teleporting player: {%0}'
+teleport-error: '§cTerjadi kesalahan saat memindahkan pemain: {%0}'
 
 # List Command:
 list-done: '§aDunia ({%0}):'
@@ -49,13 +48,13 @@ load-usage: '§cPenggunaan: §7/mw load <dunia>'
 load-notexists: '§cDunia {%0} tidak ada.'
 load-loaded: '§cTidak dapat memuat dunia.'
 load-done: '§aDunia dimuat.'
-load-error: '§cAn error occurred whilst loading the world: {%0}'
+load-error: '§cTerjadi kesalahan saat memuat dunia: {%0}'
 
 # Unload Command:
 unload-usage: '§cPenggunaan: §7/mw unload <dunia>'
 unload-levelnotexists: '§cDunia {%0} tidak ada.'
 unload-unloaded: '§cTidak dapat membongkar dunia.'
-unload-default: '§cUnable to unload default level.'
+unload-default: '§cDunia bawaan tidak dapat dibongkar.'
 unload-done: '§aDunia dibongkar.'
 
 # Delete Command:
@@ -65,12 +64,12 @@ delete-done: '§aDunia dihapus. ({%0} file dihapus.) '
 
 # Info Command:
 info-levelnotexists: '§cDunia {%0} tidak ada.'
-info-unloaded: '§cCould not fetch info from the world {%0}, due to the world could not be loaded.'
+info-unloaded: '§cInfo dunia {%0} tidak dapat diambil karena dunia tersebut gagal dimuat.'
 info: '§a--- {%0} ---'
 info-name: '§7Nama Dunia: {%0}'
 info-folderName: '§7Nama folder: {%0}'
 info-players: '§7Jumlah pemain: {%0}'
-info-generator: '§7Generator: {%0}'
+info-generator: '§7Generator dunia: {%0}'
 info-seed: '§7Benih: {%0}'
 info-time: '§7Waktu: {%0}'
 
@@ -86,7 +85,7 @@ rename-usage: '§cPenggunaan: §7/mw rename <dari> <ke>'
 rename-exists: '§cDunia dengan nama {%0} sudah ada.'
 rename-levelnotfound: '§cDunia {%0} tidak ada.'
 rename-done: '§aNama dunia {%0} diubah menjadi {%1}.'
-rename-error: '§cCould not rename the world (Access denied)'
+rename-error: '§cNama dunia tidak dapat diubah (akses ditolak).'
 
 # Duplicate Command
 duplicate-usage: '§cPenggunaan: §7/mw duplicate <dunia> [namaBaru]'
@@ -95,11 +94,11 @@ duplicate-levelnotfound: '§cLevel {%0} tidak ada.'
 duplicate-done: 'Dunia {%0} berhasil terduplikat, nama duplikatnya adalah {%1}'
 
 # Set Spawn
-setspawn-success: '§a{%0} world spawn set to {%1}'
+setspawn-success: '§aTitik spawn dunia {%0} diatur ke {%1}'
 
 # Set Lobby
-setlobby-error: '§cCould not update default world: {%0}'
-setlobby-success: '§aServer lobby position set to {%0} at {%1}'
+setlobby-error: '§cGagal memperbarui dunia bawaan: {%0}'
+setlobby-success: '§aPosisi lobi server di dunia {%0} diatur ke {%1}'
 
 # Forms
 forms-invalid: '§cHasil tidak valid.'

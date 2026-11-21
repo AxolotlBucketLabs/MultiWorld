@@ -1,19 +1,18 @@
 ---
-### Türkçe Dil MultiWorld için :D 
-### Turkish language file by DragonfireHD98
-## Commands:
+### Credits: @DragonfireHD98
 
+## Commands:
 not-perms: '§cSBu komutu çalıştırmak için gerekli izinlere sahip değilsiniz !'
 default-usage: '§ckullanım : §7/mw help'
-ingame: '§cThis command can be only used in game.'
+ingame: '§cBu komut yalnızca oyun içinde kullanılabilir.'
 
 # Help Command:
-help: '§2--- §fMultiWorld help page ({%0}/{%1}) §2---'
+help: '§2--- §fMultiWorld yardım sayfası {%0}/{%1} (/mw help <sayfa>) §2---'
 help-1: '§2/mw create §fBir dünya yaratın '
 help-2: '§2/mw teleport §fBir dünyaya ışınlanın '
 help-3: '§2/mw list §fTüm dünyaların bir listesini görüntüler '
-help-4: '§2/mw load §fLoads a world'
-help-5: '§2/mw unload §fUnloads a world'
+help-4: '§2/mw load §fBir dünyayı yükler'
+help-5: '§2/mw unload §fBir dünyanın yüklemesini kaldırır'
 
 help-6: '§2/mw delete §fBir dünyayı kaldır '
 help-7: '§2/mw info §fBir dünya hakkında bilgi görüntüler '
@@ -21,9 +20,9 @@ help-8: '§2/mw gamerule §fBir seviye için oyunun kurallarını yönetin '
 help-9: '§2/mw manage §fDünyaları yönetmek için bir kullanıcı arayüzü gösterir '
 help-10: '§2/mw rename §fBir dünyanın adını değiştirir '
 
-help-11: '§2/mw duplicate §fDuplicates a world'
-help-12: '§2/mw setspawn §fUpdate world spawn'
-help-13: '§2/mw setlobby §fUpdate server lobby position'
+help-11: '§2/mw duplicate §fBir dünyayı çoğaltır'
+help-12: '§2/mw setspawn §fDünyanın doğma noktasını ayarlar'
+help-13: '§2/mw setlobby §fSunucu lobi konumunu ayarlar'
 
 # Create Command:
 create-usage: '§ckullanım : §7/mw create <İsim> [tohum] [jeneratör ]'
@@ -39,7 +38,7 @@ teleport-load: 'Seviye {%0} yükleniyor...'
 teleport-done-1: '§aSen dünyaya doğdun {%0} ışınlanmış .'
 teleport-done-2: '§aOyuncu {%1} dünyanın dışındaydı {%0} ışınlanmış !'
 teleport-playernotexists: '§cBu oyuncu mevcut değil !'
-teleport-error: '§cAn error occurred whilst teleporting player: {%0}'
+teleport-error: '§cOyuncu ışınlanırken bir hata oluştu: {%0}'
 
 # List Command:
 list-done: '§aDünyalar ({%0}):'
@@ -49,13 +48,13 @@ load-usage: '§ckullanım: §7/mw load <seviye>'
 load-notexists: '§cDünya {%0} mevcut değil!'
 load-loaded: '§cDünya yüklenemedi !'
 load-done: '§aDünya yüklendi !'
-load-error: '§cAn error occurred whilst loading the world: {%0}'
+load-error: '§cDünya yüklenirken bir hata oluştu: {%0}'
 
 # Unload Command:
 unload-usage: '§ckullanım: §7/mw unload <seviye>'
 unload-levelnotexists: '§cDünya{%0} mevcut değil!'
 unload-unloaded: '§cDünya taburcu edilemedi !'
-unload-default: '§cUnable to unload default level.'
+unload-default: '§cVarsayılan dünya yüklü kalmalıdır.'
 unload-done: '§aDünyayı boşaltın !'
 
 # Delete Command:
@@ -65,7 +64,7 @@ delete-done: '§aDünya silindi ! ({%0} Dosyalar kaldırıldı .)'
 
 # Info Command:
 info-levelnotexists: '§cDünya {%0} mevcut değil!'
-info-unloaded: '§cCould not fetch info from the world {%0}, due to the world could not be loaded.'
+info-unloaded: '§cDünya {%0} yüklenemediği için bilgileri alınamadı.'
 info: '§a--- {%0} ---'
 info-name: '§aisim: {%0}'
 info-folderName: '§7Dosya-isim: {%0}'
@@ -76,7 +75,7 @@ info-time: '§7Saat: {%0}'
 
 # Gamerule Command:
 gamerule-usage: '§ckullanım §7/mw gamerule <list|gamerule> [true|false] [seviye]'
-gamerule-list: '§aAvailable game rules: {%0}'
+gamerule-list: '§aKullanılabilir oyun kuralları: {%0}'
 gamerule-levelnotfound: '§cDünya {%0} bulunamadı .'
 gamerule-notexists: '§cOyunun kuralları  {%0} mevcut değil .'
 gamerule-done: '§aOyunun kuralları  {%0} dünyada oldu {%1} açık  {%2} değişti .'
@@ -86,20 +85,20 @@ rename-usage: '§ckullanım §7/mw rename <eski isim> <yeni isim>'
 rename-exists: '§cisimli bir seviye {%0} zaten var .'
 rename-levelnotfound: '§cSeviye {%0} mecut değil.'
 rename-done: '§aSeviye adı {%0} {%1} olarak değiştirildi.  '
-rename-error: '§cCould not rename the world (Access denied)'
+rename-error: '§cDünyanın adı değiştirilemedi (erişim reddedildi).'
 
 # Duplicate Command
-duplicate-usage: '§cUsage: §7/mw duplicate <world> [newName]'
-duplicate-exists: '§cWorld with name {%0} already exists.'
-duplicate-levelnotfound: '§cLevel {%0} does not exist.'
-duplicate-done: 'World {%0} duplicated, name of the duplicate is {%1}'
+duplicate-usage: '§cKullanım: §7/mw duplicate <dünya> [yeniAd]'
+duplicate-exists: '§c{%0} adında bir dünya zaten mevcut.'
+duplicate-levelnotfound: '§c{%0} dünyası mevcut değil.'
+duplicate-done: '§a{%0} dünyası çoğaltıldı. Kopyanın adı {%1}.'
 
 # Set Spawn
-setspawn-success: '§a{%0} world spawn set to {%1}'
+setspawn-success: '§a{%0} dünyasının doğma noktası {%1} olarak ayarlandı.'
 
 # Set Lobby
-setlobby-error: '§cCould not update default world: {%0}'
-setlobby-success: '§aServer lobby position set to {%0} at {%1}'
+setlobby-error: '§cVarsayılan dünya güncellenemedi: {%0}'
+setlobby-success: '§aSunucu lobisinin {%0} dünyasındaki konumu {%1} olarak ayarlandı.'
 
 # Forms
 forms-invalid: '§cgeçersiz istek .'

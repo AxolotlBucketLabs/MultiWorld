@@ -1,14 +1,13 @@
 ---
-### Czech language file by @VixikHD
+### Credits: @VixikHD
 
 ## Commands:
-
 not-perms: '§cNemáš povolení použít tento příkaz!'
 default-usage: '§cPoužij: §7/mw help'
 ingame: '§cTento příkaz může být použit jen ve hře.'
 
 # Help Command:
-help: '§2--- Zobrazuji MultiWorld pomocnou stránku {%0} z {%1} (/mw help <page>) ---'
+help: '§2--- Zobrazuji stránku nápovědy MultiWorld {%0} z {%1} (/mw help <stránka>) ---'
 help-1: '§2/mw create §fVytvoří nový svět'
 help-2: '§2/mw teleport §fTeleportuje na svět'
 help-3: '§2/mw list §fZobrazí list všech světů'
@@ -22,7 +21,7 @@ help-9: '§2/mw manage §fZapne správce světů'
 help-10: '§2/mw rename §fPřejmenuje svět'
 
 help-11: '§2/mw duplicate §fZduplikuje svět'
-help-12: '§2/mw setspawn §fUpdate world spawn'
+help-12: '§2/mw setspawn §fNastaví spawn světa'
 help-13: '§2/mw setlobby §fNastaví lobby serveru'
 
 # Create Command:
@@ -71,7 +70,7 @@ info-name: '§7Název: {%0}'
 info-folderName: '§7Název složky: {%0}'
 info-players: '§7Počet hráčů: {%0}'
 info-generator: '§7Generátor: {%0}'
-info-seed: '§7Seed: {%0}'
+info-seed: '§7Semeno: {%0}'
 info-time: '§7Čas: {%0}'
 
 # Gamerule Command:

@@ -1,11 +1,10 @@
 ---
-### Thai language file by @KohakuChanX, changes may be needed.
+### Credits: @Kuuuuuuuu
 
 ## Commands:
-
 not-perms: '§cคุณไม่มีสิทธิ์ใช้คำสั่งนี้'
 default-usage: '§cใช้: §7/mw help'
-ingame: '§cThis command can be only used in game.'
+ingame: '§cคำสั่งนี้ใช้ได้เฉพาะในเกมเท่านั้น'
 
 # Help Command:
 help: '§2--- กำลังดูคำสั่ง MultiWorld หน้าที่ {%0} ทั้งหมด {%1} (/mw help <เลขหน้า>) ---'
@@ -22,8 +21,8 @@ help-9: '§2/mw manage §fโชว์หน้าต่างตั้งค่
 help-10: '§2/mw rename §fแก้ชื่อโลก'
 
 help-11: '§2/mw duplicate §fคัดลอกโลก'
-help-12: '§2/mw setspawn §fUpdate world spawn'
-help-13: '§2/mw setlobby §fUpdate server lobby position'
+help-12: '§2/mw setspawn §fตั้งจุดเกิดของโลก'
+help-13: '§2/mw setlobby §fตั้งตำแหน่งล็อบบี้ของเซิร์ฟเวอร์'
 
 # Create Command:
 create-usage: '§cใช้: §7/mw create <ชื่อ> [ซีด] [Generator]'
@@ -39,7 +38,7 @@ teleport-load: 'กำลังโหลดโลก {%0}...'
 teleport-done-1: '§aคุณได้วาปมาโลก {%0}'
 teleport-done-2: '§aผู้เล่น {%1} ได้วาปไป {%0}'
 teleport-playernotexists: '§cไม่เจอผู้เล่นชื่อนี้'
-teleport-error: '§cAn error occurred whilst teleporting player: {%0}'
+teleport-error: '§cเกิดข้อผิดพลาดขณะเทเลพอร์ตผู้เล่น: {%0}'
 
 # List Command:
 list-done: '§aรายชื่อโลก ({%0}):'
@@ -49,7 +48,7 @@ load-usage: '§cใช้: §7/mw load <ชื่อโลก>'
 load-notexists: '§cไม่พบโลก {%0}'
 load-loaded: '§cไม่สามารถโหลดโลกนี้ได้'
 load-done: '§aโลกได้ถูกโหลด'
-load-error: '§cAn error occurred whilst loading the world: {%0}'
+load-error: '§cเกิดข้อผิดพลาดขณะโหลดโลก: {%0}'
 
 # Unload Command:
 unload-usage: '§cใช้: §7/mw unload <ชื่อโลก>'
@@ -65,12 +64,12 @@ delete-done: '§aโลกได้ถูกลบ. ({%0} จำนวนไฟ�
 
 # Info Command:
 info-levelnotexists: '§cไม่พบโลก {%0}'
-info-unloaded: '§cCould not fetch info from the world {%0}, due to the world could not be loaded.'
+info-unloaded: '§cไม่สามารถดึงข้อมูลของโลก {%0} ได้ เนื่องจากโหลดโลกไม่สำเร็จ'
 info: '§a--- {%0} ---'
 info-name: '§7ชื่อ: {%0}'
 info-folderName: '§7ชื่อโฟลเดอร์: {%0}'
 info-players: '§7จำนวนผู้เล่น: {%0}'
-info-generator: '§7Generator: {%0}'
+info-generator: '§7ตัวสร้างโลก: {%0}'
 info-seed: '§7ซีด: {%0}'
 info-time: '§7เวลา: {%0}'
 
@@ -86,7 +85,7 @@ rename-usage: '§cใช้: §7/mw rename <ชื่อโลก> <ชื่อ
 rename-exists: '§cชื่อโลก {%0} มีอยู่แล้ว'
 rename-levelnotfound: '§cไม่พบโลก {%0}'
 rename-done: '§aชื่อของโลก {%0} ได้ถูกเปลี่ยนเป็น {%1}'
-rename-error: '§cCould not rename the world (Access denied)'
+rename-error: '§cไม่สามารถเปลี่ยนชื่อโลกได้ (ไม่มีสิทธิ์เข้าถึง)'
 
 # Duplicate Command
 duplicate-usage: '§cใช้: §7/mw duplicate <ชื่อโลก> [ชื่อโลกใหม่]'
@@ -95,11 +94,11 @@ duplicate-levelnotfound: '§cไม่พบโลก {%0}'
 duplicate-done: 'โลก {%0} ได้ถูกคัดลอก, ชื่อโลกที่คัดลอก {%1}'
 
 # Set Spawn
-setspawn-success: '§a{%0} world spawn set to {%1}'
+setspawn-success: '§aตั้งจุดเกิดของโลก {%0} ที่ {%1} แล้ว'
 
 # Set Lobby
-setlobby-error: '§cCould not update default world: {%0}'
-setlobby-success: '§aServer lobby position set to {%0} at {%1}'
+setlobby-error: '§cไม่สามารถอัปเดตโลกเริ่มต้นได้: {%0}'
+setlobby-success: '§aตั้งตำแหน่งล็อบบี้ของเซิร์ฟเวอร์ในโลก {%0} ที่ {%1} แล้ว'
 
 # Forms
 forms-invalid: '§cผลลัพธ์ไม่ถูกต้อง'

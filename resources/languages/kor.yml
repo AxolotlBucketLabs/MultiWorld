@@ -1,19 +1,18 @@
 ---
-### Korean language file by @Regard0606, changes may be needed.
+### Credits: @Regard0606
 
 ## Commands:
-
 not-perms: '§c당신은 이 커맨드에 대한 권한이 없습니다'
 default-usage: '§c사용법: §7/mw help'
-ingame: '§cThis command can be only used in game.'
+ingame: '§c이 명령어는 게임 내에서만 사용할 수 있습니다.'
 
 # Help Command:
-help: '§2--- MultiWorld 도움말 {%0} of {%1} (/mw help <page>) ---'
+help: '§2--- MultiWorld 도움말 {%1}페이지 중 {%0}페이지 (/mw help <페이지>) ---'
 help-1: '§2/mw create §f새 월드 생성'
 help-2: '§2/mw teleport §f다른 월드로 이동'
 help-3: '§2/mw list §f 모든 월드 목록 표시'
-help-4: '§2/mw load §fLoads a world'
-help-5: '§2/mw unload §fUnloads a world'
+help-4: '§2/mw load §f월드를 불러옵니다'
+help-5: '§2/mw unload §f월드 불러오기를 해제합니다'
 
 help-6: '§2/mw delete §f월드 삭제'
 help-7: '§2/mw info §f월드 정보 표시'
@@ -21,9 +20,9 @@ help-8: '§2/mw gamerule §f월드의 규칙(게임룰)을 관리'
 help-9: '§2/mw manage §f월드를 관리할수 있는 서식표시'
 help-10: '§2/mw rename §f월드 이름 바꾸기'
 
-help-11: '§2/mw duplicate §fDuplicates a world'
-help-12: '§2/mw setspawn §fUpdate world spawn'
-help-13: '§2/mw setlobby §fUpdate server lobby position'
+help-11: '§2/mw duplicate §f월드를 복제합니다'
+help-12: '§2/mw setspawn §f월드 스폰 지점을 설정합니다'
+help-13: '§2/mw setlobby §f서버 로비 위치를 설정합니다'
 
 # Create Command:
 create-usage: '§c사용법: §7/mw create <월드이름> [시드] [유형]'
@@ -39,23 +38,23 @@ teleport-load: '월드 로딩중 {%0}...'
 teleport-done-1: '§a당신은 {%0} 로 이동 되었습니다.'
 teleport-done-2: '§a플레이어 {%1} 는 {%0} 로 이동되었습니다.'
 teleport-playernotexists: '§c플레이어가 존재하지 않습니다.'
-teleport-error: '§cAn error occurred whilst teleporting player: {%0}'
+teleport-error: '§c플레이어를 이동하는 중 오류가 발생했습니다: {%0}'
 
 # List Command:
 list-done: '§a월드 ({%0}):'
 
 # Load Command:
 load-usage: '§c사용법: §7/mw load <월드이름>'
-load-notexists: '§cWorld {%0} does not exist.'
-load-loaded: '§cUnable to load the world.'
-load-done: '§aWorld loaded.'
-load-error: '§cAn error occurred whilst loading the world: {%0}'
+load-notexists: '§c월드 {%0}이(가) 존재하지 않습니다.'
+load-loaded: '§c월드를 불러올 수 없습니다.'
+load-done: '§a월드를 불러왔습니다.'
+load-error: '§c월드를 불러오는 중 오류가 발생했습니다: {%0}'
 
 # Unload Command:
 unload-usage: '§c사용법: §7/mw unload <월드이름>'
 unload-levelnotexists: '§c{%0} 는 존재하지 않습니다.'
 unload-unloaded: '§c월드를 언로드 할수 없습니다.'
-unload-default: '§cUnable to unload default level.'
+unload-default: '§c기본 월드는 언로드할 수 없습니다.'
 unload-done: '§a월드가 언로드 되었습니다.'
 
 # Delete Command:
@@ -65,7 +64,7 @@ delete-done: '§a월드가 삭제되었습니다. ({%0} 파일이 삭제 되었�
 
 # Info Command:
 info-levelnotexists: '§c{%0} 은 존재하지 않습니다.'
-info-unloaded: '§cCould not fetch info from the world {%0}, due to the world could not be loaded.'
+info-unloaded: '§c월드 {%0}을(를) 불러오지 못해 정보를 가져올 수 없습니다.'
 info: '§a--- {%0} ---'
 info-name: '§7이름: {%0}'
 info-folderName: '§7폴더이름: {%0}'
@@ -76,7 +75,7 @@ info-time: '§7시간: {%0}'
 
 # Gamerule Command:
 gamerule-usage: '§c사용법: §7/mw gamerule <list|gamerule> [true|false] [level]'
-gamerule-list: '§aAvailable game rules: {%0}'
+gamerule-list: '§a사용 가능한 게임 규칙: {%0}'
 gamerule-levelnotfound: '§c월드 {%0} 를 찾을 수 없습니다.'
 gamerule-notexists: '§c게임룰 {%0} 을 찾을 수 없습니다.'
 gamerule-done: '§a게임룰 {%0} 이 {%1} 월드에서 {%2} 로 바뀌었습니다.'
@@ -86,20 +85,20 @@ rename-usage: '§c사용법: §7/mw rename <현재이름> <바꿀이름>'
 rename-exists: '§c {%0} 은 이미 존재하는 이름입니다.'
 rename-levelnotfound: '§c {%0} 은 존재하지 않습니다.'
 rename-done: '§a {%0} 가 {%1} 로 바뀌었습니다.'
-rename-error: '§cCould not rename the world (Access denied)'
+rename-error: '§c월드 이름을 변경할 수 없습니다 (액세스가 거부되었습니다).'
 
 # Duplicate Command
-duplicate-usage: '§cUsage: §7/mw duplicate <world> [newName]'
-duplicate-exists: '§cWorld with name {%0} already exists.'
-duplicate-levelnotfound: '§cLevel {%0} does not exist.'
-duplicate-done: 'World {%0} duplicated, name of the duplicate is {%1}'
+duplicate-usage: '§c사용법: §7/mw duplicate <월드> [새이름]'
+duplicate-exists: '§c이름이 {%0}인 월드가 이미 존재합니다.'
+duplicate-levelnotfound: '§c월드 {%0}이(가) 존재하지 않습니다.'
+duplicate-done: '§a월드 {%0}을(를) 복제했습니다. 복제본 이름: {%1}.'
 
 # Set Spawn
-setspawn-success: '§a{%0} world spawn set to {%1}'
+setspawn-success: '§a월드 {%0}의 스폰 지점을 {%1}(으)로 설정했습니다.'
 
 # Set Lobby
-setlobby-error: '§cCould not update default world: {%0}'
-setlobby-success: '§aServer lobby position set to {%0} at {%1}'
+setlobby-error: '§c기본 월드를 업데이트할 수 없습니다: {%0}'
+setlobby-success: '§a월드 {%0}의 서버 로비 위치를 {%1}(으)로 설정했습니다.'
 
 # Forms
 forms-invalid: '§c잘못된 결과.'

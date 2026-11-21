@@ -115,7 +115,7 @@ class LanguageManager {
 			}
 
 			if(empty(LanguageManager::$languages[$lang])) {
-				$lang = "en_US";
+				$lang = "eng";
 			}
 
 			$message = LanguageManager::$languages[$lang][$messageIndex];

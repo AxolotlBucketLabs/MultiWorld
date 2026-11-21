@@ -1,14 +1,13 @@
 ---
-### Deutsche Sprachdatei von Tobikiss und SchdowNVIDIA
-### German language file by Tobikiss and SchdowNVIDIA
-## Commands:
+### Credits: @Tobikisss, @SchdowNVIDIA
 
+## Commands:
 not-perms: '§cSie haben nicht die benötigten Berechtigungen, diesen Befehl auszuführen!'
 default-usage: '§cBenutzung: §7/mw help'
-ingame: '§cThis command can be only used in game.'
+ingame: '§cDieser Befehl kann nur im Spiel verwendet werden.'
 
 # Help Command:
-help: '§2--- §fMultiWorld help page ({%0}/{%1}) §2---'
+help: '§2--- §fMultiWorld-Hilfeseite {%0} von {%1} (/mw help <Seite>) §2---'
 help-1: '§2/mw create §fEine Welt generieren'
 help-2: '§2/mw teleport §fTeleportieren zu einer Welt'
 help-3: '§2/mw list §fZeigt eine Liste aller Welten an'
@@ -22,8 +21,8 @@ help-9: '§2/mw manage §fZeigt eine UI zum verwalten der Welten an'
 help-10: '§2/mw rename §fÄndert den Namen einer Welt'
 
 help-11: '§2/mw duplicate §fDuplicates world'
-help-12: '§2/mw setspawn §fUpdate world spawn'
-help-13: '§2/mw setlobby §fUpdate server lobby position'
+help-12: '§2/mw setspawn §fSetzt den Weltspawn'
+help-13: '§2/mw setlobby §fSetzt die Lobbyposition des Servers'
 
 # Create Command:
 create-usage: '§cBenutzung: §7/mw create <name> [seed] [generator]'
@@ -39,7 +38,7 @@ teleport-load: 'Lade die Welt {%0} ...'
 teleport-done-1: '§aDu wurdest in die Welt {%0} teleportiert.'
 teleport-done-2: '§aSpieler {%1} wurde in die Welt {%0} teleportiert!'
 teleport-playernotexists: '§cDieser Spieler existiert nicht!'
-teleport-error: '§cAn error occurred whilst teleporting player: {%0}'
+teleport-error: '§cBeim Teleportieren des Spielers ist ein Fehler aufgetreten: {%0}'
 
 # List Command:
 list-done: '§aWelten ({%0}):'
@@ -49,13 +48,13 @@ load-usage: '§cBenutzung: §7/mw load <welt>'
 load-notexists: '§cWelt {%0} existiert nicht!'
 load-loaded: '§cLaden der Welt fehlgeschlagen!'
 load-done: '§aWelt geladen!'
-load-error: '§cAn error occurred whilst loading the world: {%0}'
+load-error: '§cBeim Laden der Welt ist ein Fehler aufgetreten: {%0}'
 
 # Unload Command:
 unload-usage: '§cBenutzung: §7/mw unload <welt>'
 unload-levelnotexists: '§cDie Welt {%0} existiert nicht!'
 unload-unloaded: '§cWelt konnte nicht entladen werden!'
-unload-default: '§cUnable to unload default level.'
+unload-default: '§cDie Standardwelt kann nicht entladen werden.'
 unload-done: '§aWelt entladen!'
 
 # Delete Command:
@@ -65,13 +64,13 @@ delete-done: '§aWelt wurde gelöscht! ({%0} Dateien wurden entfernt.)'
 
 # Info Command:
 info-levelnotexists: '§cDie Welt {%0} existiert nicht!'
-info-unloaded: '§cCould not fetch info from the world {%0}, due to the world could not be loaded.'
+info-unloaded: '§cInformationen zur Welt {%0} konnten nicht abgerufen werden, weil die Welt nicht geladen werden konnte.'
 info: '§a--- {%0} ---'
-info-name: '§7Name: {%0}'
+info-name: '§7Weltname: {%0}'
 info-folderName: '§7Ordnername: {%0}'
 info-players: '§7Spieleranzahl: {%0}'
-info-generator: '§7Generator: {%0}'
-info-seed: '§7Seed: {%0}'
+info-generator: '§7Weltgenerator: {%0}'
+info-seed: '§7Startwert: {%0}'
 info-time: '§7Zeit: {%0}'
 
 # Gamerule Command:
@@ -86,20 +85,20 @@ rename-usage: '§cBenutzung: §7/mw rename <von> <zu>'
 rename-exists: '§cEine Welt mit dem Namen {%0} existiert bereits.'
 rename-levelnotfound: '§cDie Welt {%0} existiert nicht.'
 rename-done: '§aName der Welt {%0} wurde geändert zu {%1}.'
-rename-error: '§cCould not rename the world (Access denied)'
+rename-error: '§cDie Welt konnte nicht umbenannt werden (Zugriff verweigert).'
 
 # Duplicate Command
-duplicate-usage: '§cUsage: §7/mw duplicate <world> [newName]'
-duplicate-exists: '§cWorld with name {%0} already exists.'
-duplicate-levelnotfound: '§cLevel {%0} does not exist.'
-duplicate-done: 'World {%0} duplicated, name of the duplicate is {%1}'
+duplicate-usage: '§cBenutzung: §7/mw duplicate <Welt> [neuerName]'
+duplicate-exists: '§cEine Welt mit dem Namen {%0} existiert bereits.'
+duplicate-levelnotfound: '§cDie Welt {%0} existiert nicht.'
+duplicate-done: '§aWelt {%0} wurde dupliziert. Die Kopie heißt {%1}.'
 
 # Set Spawn
-setspawn-success: '§a{%0} world spawn set to {%1}'
+setspawn-success: '§aDer Weltspawn {%0} wurde auf {%1} gesetzt.'
 
 # Set Lobby
-setlobby-error: '§cCould not update default world: {%0}'
-setlobby-success: '§aServer lobby position set to {%0} at {%1}'
+setlobby-error: '§cDie Standardwelt konnte nicht aktualisiert werden: {%0}'
+setlobby-success: '§aDie Serverlobbyposition wurde in Welt {%0} auf {%1} gesetzt.'
 
 # Forms
 forms-invalid: '§cUngültige Anfrage.'

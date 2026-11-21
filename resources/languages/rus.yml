@@ -1,11 +1,10 @@
 ---
-### Файл с русским языком от SteinsSquad и kostamax27
-### Russian language by SteinsSquad && kostamax27
-## Commands:
+### Credits: @themestl, @kostamax27
 
+## Commands:
 not-perms: 'У вас нет прав использовать эту команду!'
 default-usage: '§cИспользуйте: §7/mw help'
-ingame: '§cThis command can be only used in game.'
+ingame: '§cЭту команду можно использовать только в игре.'
 
 # Help Command:
 help: '§2--- §fMultiWorld ({%0}/{%1}) §2---'
@@ -22,8 +21,8 @@ help-9: '§2/mw manage §fОтображает форму для управле�
 help-10: '§2/mw rename §fПереименовать мир'
 
 help-11: '§2/mw duplicate §fДублирувать мир'
-help-12: '§2/mw setspawn §fUpdate world spawn'
-help-13: '§2/mw setlobby §fUpdate server lobby position'
+help-12: '§2/mw setspawn §fУстанавливает точку появления мира'
+help-13: '§2/mw setlobby §fУстанавливает позицию лобби сервера'
 
 # Create Command:
 create-usage: '§cИспользование: §7/mw create <имя> [сид] [генерация]'
@@ -39,7 +38,7 @@ teleport-load: '§aЗагрузка мира {%0} ...'
 teleport-done-1: '§aВы телепортированы в мир {%0}.'
 teleport-done-2: '§aИгрок {%1} был телепортирован в мир {%0}!'
 teleport-playernotexists: '§cИгрок не найден!'
-teleport-error: '§cAn error occurred whilst teleporting player: {%0}'
+teleport-error: '§cПри телепортации игрока произошла ошибка: {%0}'
 
 # List Command:
 list-done: 'Миры ({%0}):'
@@ -49,13 +48,13 @@ load-usage: '§cИспользование: §7/mw load <мир>'
 load-notexists: '§cМир {%0} не существует!'
 load-loaded: '§cМир уже загружен!'
 load-done: '§aМир был загружен!'
-load-error: '§cAn error occurred whilst loading the world: {%0}'
+load-error: '§cПри загрузке мира произошла ошибка: {%0}'
 
 # Unload Command:
 unload-usage: '§cИспользование: §7/mw unload <мир>'
 unload-levelnotexists: '§cМир {%0} не существует!'
 unload-unloaded: '§cМир уже выгружен!'
-unload-default: '§cUnable to unload default level.'
+unload-default: '§cНевозможно выгрузить мир по умолчанию.'
 unload-done: '§aМир был выгружен!'
 
 # Delete Command:
@@ -65,7 +64,7 @@ delete-done: '§aМир был удален!'
 
 # Info Command:
 info-levelnotexists: '§cМир {%0} не существует!'
-info-unloaded: '§cCould not fetch info from the world {%0}, due to the world could not be loaded.'
+info-unloaded: '§cНе удалось получить сведения о мире {%0}, потому что его не удалось загрузить.'
 info: '§a--- {%0} ---'
 info-name: '§7Название мира: {%0}'
 info-folderName: '§7Название папки: {%0}'
@@ -86,20 +85,20 @@ rename-usage: '§cИспользование: §7/mw rename <мир> <новое
 rename-exists: '§cМир с названием {%0} уже существует.'
 rename-levelnotfound: '§cМира {%0} не существует.'
 rename-done: '§aНазвание мира {%0} было изменено на {%1}.'
-rename-error: '§cCould not rename the world (Access denied)'
+rename-error: '§cНе удалось переименовать мир (доступ запрещён).'
 
 # Duplicate Command
-duplicate-usage: '§cИспользование: §7/mw duplicate <world> [newName]'
+duplicate-usage: '§cИспользование: §7/mw duplicate <мир> [новоеИмя]'
 duplicate-exists: '§cМир с именем {%0} уже существует.'
 duplicate-levelnotfound: '§cМира {%0} не существует.'
 duplicate-done: 'Мир {%0} дублируется, имя дубликата {%1}'
 
 # Set Spawn
-setspawn-success: '§a{%0} world spawn set to {%1}'
+setspawn-success: '§aТочка появления мира {%0} установлена на {%1}'
 
 # Set Lobby
-setlobby-error: '§cCould not update default world: {%0}'
-setlobby-success: '§aServer lobby position set to {%0} at {%1}'
+setlobby-error: '§cНе удалось обновить мир по умолчанию: {%0}'
+setlobby-success: '§aПозиция лобби сервера в мире {%0} установлена на {%1}'
 
 # Forms
 forms-invalid: '§cНеверный результат.'

@@ -10,7 +10,7 @@ prefix: '§7[MultiWorld]'
 # You can add your language by creating pull request at GitHub (github.com/CzechPMDevs/MultiWorld/pulls)
 # Language is automatically chosen from minecraft. There you can change
 # fallback language, which is used when the server does not have required language resources
-language: 'en_US'
+language: 'eng'
 
 # Enabling this option will cause server to use forcefully language specified in
 # 'language' field.

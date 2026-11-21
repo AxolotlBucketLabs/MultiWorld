@@ -1,11 +1,10 @@
 ---
-### Simplified Chinese (简体中文) language by @abc1460132901 and @lixworth
+### Credits: @abc1460132901, @lixworth, @Blackjack200
 
 ## Commands:
-
 not-perms: '§c你没有使用这个命令的相应权限!'
 default-usage: '§c输入: §7/mw help'
-ingame: '§cThis command can be only used in game.'
+ingame: '§c此命令只能在游戏内使用。'
 
 # Help Command:
 help: '§2--- §fMultiWorld 帮助页码 ({%0}/{%1}) §2---'
@@ -22,8 +21,8 @@ help-9: '§2/mw manage §f显示管理世界的GUI'
 help-10: '§2/mw rename §f重命名世界'
 
 help-11: '§2/mw duplicate §f复制一个世界'
-help-12: '§2/mw setspawn §fUpdate world spawn'
-help-13: '§2/mw setlobby §fUpdate server lobby position'
+help-12: '§2/mw setspawn §f设置世界出生点'
+help-13: '§2/mw setlobby §f设置服务器大厅位置'
 
 # Create Command:
 create-usage: '§c输入: §7/mw create <世界名> [种子] [生成器]'
@@ -39,7 +38,7 @@ teleport-load: '正在加载世界 {%0}...'
 teleport-done-1: '§a你被传送到这个世界 {%0}.'
 teleport-done-2: '§a玩家 {%1} 被传送到世界 {%0}!'
 teleport-playernotexists: '§c玩家 {%0} 不存在!'
-teleport-error: '§cAn error occurred whilst teleporting player: {%0}'
+teleport-error: '§c传送玩家时发生错误：{%0}'
 
 # List Command:
 list-done: '§a世界 ({%0}):'
@@ -49,13 +48,13 @@ load-usage: '§c输入: §7/mw load <世界名>'
 load-notexists: '§c世界 {%0} 不存在!'
 load-loaded: '§c不能加载这个世界!'
 load-done: '§a该世界被成功加载!'
-load-error: '§cAn error occurred whilst loading the world: {%0}'
+load-error: '§c加载世界时发生错误：{%0}'
 
 # Unload Command:
 unload-usage: '§c输入: §7/mw unload <世界名>'
 unload-levelnotexists: '§c世界 {%0}不存在!'
 unload-unloaded: '§c不能卸载这个世界!'
-unload-default: '§cUnable to unload default level.'
+unload-default: '§c无法卸载默认世界。'
 unload-done: '§a该世界被卸载成功!'
 
 # Delete Command:
@@ -65,7 +64,7 @@ delete-done: '§a世界已经被删除! ({%0} 文件已经被删除.)'
 
 # Info Command:
 info-levelnotexists: '§c{%0} 不存在,'
-info-unloaded: '§cCould not fetch info from the world {%0}, due to the world could not be loaded.'
+info-unloaded: '§c无法获取世界 {%0} 的信息，因为该世界无法加载。'
 info: '§a--- {%0} ---'
 info-name: '§7名字: {%0}'
 info-folderName: '§7文件夹名: {%0}'
@@ -86,20 +85,20 @@ rename-usage: '§c用法: §7/mw rename <from> <to>'
 rename-exists: '§c地图 {%0} 已存在.'
 rename-levelnotfound: '§c地图 {%0} 不存在.'
 rename-done: '§a地图 {%0} 重命名为 {%1}.'
-rename-error: '§cCould not rename the world (Access denied)'
+rename-error: '§c无法重命名世界（访问被拒绝）。'
 
 # Duplicate Command
-duplicate-usage: '§c用法: §7/mw duplicate <world> [newName]'
+duplicate-usage: '§c用法：§7/mw duplicate <世界名> [新名称]'
 duplicate-exists: '§c世界 {%0}已存在.'
-duplicate-levelnotfound: '§c地图 {%0}不村庄.'
+duplicate-levelnotfound: '§c世界 {%0} 不存在。'
 duplicate-done: '世界 {%0} 已复制为 {%1}'
 
 # Set Spawn
-setspawn-success: '§a{%0} world spawn set to {%1}'
+setspawn-success: '§a世界 {%0} 的出生点已设置为 {%1}。'
 
 # Set Lobby
-setlobby-error: '§cCould not update default world: {%0}'
-setlobby-success: '§aServer lobby position set to {%0} at {%1}'
+setlobby-error: '§c无法更新默认世界：{%0}'
+setlobby-success: '§a服务器大厅在世界 {%0} 中的位置已设置为 {%1}。'
 
 # Forms
 forms-invalid: '§c无效结果.'
