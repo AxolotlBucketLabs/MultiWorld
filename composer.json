@@ -12,7 +12,7 @@
     "cortexpe/commando": "dev-PM5",
     "czechpmdevs/libpmform": "dev-main",
     "muqsit/vanillagenerator": "dev-master",
-    "muqsit/simple-packet-handler": "dev-pm5",
+    "muqsit/simple-packet-handler": "^0.1.10",
     "axolotl-pm/pocketmine-mp": "5.51.2",
     "phpstan/phpstan": "2.1.46"
   },
@@ -36,7 +36,7 @@
     },
     {
       "type": "vcs",
-      "url": "https://github.com/Muqsit/SimplePacketHandler"
+      "url": "https://github.com/AxolotlBucketLabs/SimplePacketHandler"
     }
   ],
   "autoload": {
