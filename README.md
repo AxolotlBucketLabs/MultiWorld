@@ -93,8 +93,6 @@ MultiWorld was created by CzechPMDevs. The plugin authors also include [VixikCZ]
 
 The Overworld and Nether generators were ported from the Glowstone project by [Muqsit](https://github.com/Muqsit).
 
-Translations were contributed by [fuyutsuki](https://github.com/fuyutsuki), [SteinsSquad](https://github.com/themestl), [WooWBoom](https://github.com/GitWoow), [keenanyafiqy](https://github.com/keenanyafiqy), [SchdowNVIDIA](https://github.com/SchdowNVIDIA), [Tobikisss](https://github.com/Tobikisss), [abc1460132901](https://github.com/abc1460132901), [AZ1IDJC](https://github.com/Blackjack200), [NhanAZ](https://github.com/NhanAZ), [MrBlastyMSK](https://github.com/MrBlasyMSK), [Hydros01](https://github.com/Hydros01), and [KohakuChanX](https://github.com/Kuuuuuuuu).
-
 The icon was created by Freepik from [Flaticon](https://www.flaticon.com/) under the [CC BY 3.0 license](https://creativecommons.org/licenses/by/3.0/).
 
 ## License
