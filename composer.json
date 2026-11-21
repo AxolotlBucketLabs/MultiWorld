@@ -2,21 +2,26 @@
   "name": "czechpmdevs/multiworld",
   "description": "An advanced world management PocketMine plugin with custom world generators.",
   "minimum-stability": "dev",
-  "license": "Apache-2.0",
+  "license": "GPL-3.0-or-later",
   "require": {
-    "php": "^8.0",
+    "php": "^8.4",
     "ext-yaml": "*",
-    "ext-json": "*",
-    "czechpmdevs/libpmform": "*",
-    "muqsit/vanillagenerator": "*",
-    "muqsit/simplepackethandler": "*",
-    "cortexpe/commando": "*",
-    "pocketmine/pocketmine-mp": "^5.0.0"
+    "ext-json": "*"
   },
   "require-dev": {
-    "phpstan/phpstan": "^1.10.18"
+    "cortexpe/commando": "dev-PM5",
+    "czechpmdevs/libpmform": "dev-main",
+    "muqsit/vanillagenerator": "dev-master",
+    "muqsit/simple-packet-handler": "dev-master",
+    "axolotl-pm/pocketmine-mp": "5.51.2",
+    "phpstan/phpstan": "2.1.46"
   },
+  "prefer-stable": true,
   "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/axolotl-pm/PocketMine-MP"
+    },
     {
       "type": "vcs",
       "url": "https://github.com/CzechPMDevs/libpmform"
@@ -30,21 +35,13 @@
       "url": "https://github.com/ACM-PocketMine-MP/Commando/"
     },
     {
-      "type": "package",
-      "package": {
-        "name": "muqsit/simplepackethandler",
-        "version": "0.1.0",
-        "source": {
-          "url": "https://github.com/Muqsit/SimplePacketHandler",
-          "type": "git",
-          "reference": "master"
-        }
-      }
+      "type": "vcs",
+      "url": "https://github.com/Muqsit/SimplePacketHandler"
     }
   ],
   "autoload": {
     "psr-4": {
-      "": ["src"]
+      "czechpmdevs\\multiworld\\": "src/czechpmdevs/multiworld/"
     }
   }
 }
