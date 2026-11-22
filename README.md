@@ -2,7 +2,7 @@
 
 MultiWorld adds world management commands, custom generators, and an in-game form to Axolotl-PM.
 
-[![Build and validate](https://github.com/AxolotlBucketLabs/MultiWorld/actions/workflows/build.yml/badge.svg)](https://github.com/AxolotlBucketLabs/MultiWorld/actions/workflows/build.yml) [![License](https://img.shields.io/github/license/AxolotlBucketLabs/MultiWorld)](LICENSE) [![Discord](https://img.shields.io/discord/1568295845374206052?label=Discord&logo=discord&logoColor=white&color=5865F2)](https://discord.gg/Pk4FrNvHnM)
+[![Build and validate](https://github.com/AxolotlBucketLabs/MultiWorld/actions/workflows/build.yml/badge.svg)](https://github.com/AxolotlBucketLabs/MultiWorld/actions/workflows/build.yml) [![Latest release](https://img.shields.io/github/v/release/AxolotlBucketLabs/MultiWorld)](https://github.com/AxolotlBucketLabs/MultiWorld/releases/latest) [![License](https://img.shields.io/github/license/AxolotlBucketLabs/MultiWorld)](LICENSE) [![Discord](https://img.shields.io/discord/1568295845374206052?label=Discord&logo=discord&logoColor=white&color=5865F2)](https://discord.gg/Pk4FrNvHnM)
 
 ## Requirements
 
@@ -22,12 +22,12 @@ The workflow currently builds and analyzes the plugin against Axolotl-PM 5.51.2.
 
 ## Install
 
-1. Download `MultiWorld.phar` from a successful `Build and validate` run in the repository's GitHub Actions.
+1. Download `MultiWorld.phar` from the [latest GitHub release](https://github.com/AxolotlBucketLabs/MultiWorld/releases/latest).
 2. Copy the PHAR into the server's `plugins` directory.
 3. Restart the server.
 4. Run `/mw help` in game or from the console.
 
-The workflow uploads the PHAR as an Actions artifact. It does not publish a GitHub release.
+The build workflow also uploads the PHAR and build metadata as an Actions artifact.
 
 ## Commands
 
