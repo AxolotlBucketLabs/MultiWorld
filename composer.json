@@ -9,9 +9,9 @@
     "ext-json": "*"
   },
   "require-dev": {
-    "cortexpe/commando": "dev-PM5",
+    "cortexpe/commando": "dev-main",
     "czechpmdevs/libpmform": "dev-main",
-    "muqsit/vanillagenerator": "dev-master",
+    "muqsit/vanillagenerator": "dev-main",
     "muqsit/simple-packet-handler": "^0.1.10",
     "axolotl-pm/pocketmine-mp": "5.51.2",
     "phpstan/phpstan": "2.1.46"
@@ -24,15 +24,15 @@
     },
     {
       "type": "vcs",
-      "url": "https://github.com/CzechPMDevs/libpmform"
+      "url": "https://github.com/AxolotlBucketLabs/libpmform"
     },
     {
       "type": "vcs",
-      "url": "https://github.com/CzechPMDevs/VanillaGenerator"
+      "url": "https://github.com/AxolotlBucketLabs/VanillaGenerator"
     },
     {
       "type": "vcs",
-      "url": "https://github.com/ACM-PocketMine-MP/Commando/"
+      "url": "https://github.com/AxolotlBucketLabs/Commando"
     },
     {
       "type": "vcs",

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c6aca4cccd1fd2f2acdbbfc203021f38",
+    "content-hash": "f21adf1a03d7e717170bc93a0c170d4a",
     "packages": [],
     "packages-dev": [
         {
@@ -465,17 +465,25 @@
         },
         {
             "name": "cortexpe/commando",
-            "version": "dev-PM5",
+            "version": "dev-main",
             "source": {
                 "type": "git",
-                "url": "https://github.com/ACM-PocketMine-MP/Commando.git",
-                "reference": "3fee25987fb824c3849463733a7db7943cdbcdf7"
+                "url": "https://github.com/AxolotlBucketLabs/Commando.git",
+                "reference": "e5a61ae53dca8d5aafd91bbd5ebfa5220858f922"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ACM-PocketMine-MP/Commando/zipball/3fee25987fb824c3849463733a7db7943cdbcdf7",
-                "reference": "3fee25987fb824c3849463733a7db7943cdbcdf7",
+                "url": "https://api.github.com/repos/AxolotlBucketLabs/Commando/zipball/e5a61ae53dca8d5aafd91bbd5ebfa5220858f922",
+                "reference": "e5a61ae53dca8d5aafd91bbd5ebfa5220858f922",
                 "shasum": ""
+            },
+            "require": {
+                "muqsit/simple-packet-handler": "^0.1.10",
+                "php": "^8.4"
+            },
+            "require-dev": {
+                "axolotl-pm/pocketmine-mp": "5.51.2",
+                "phpstan/phpstan": "^2.3"
             },
             "default-branch": true,
             "type": "library",
@@ -492,59 +500,79 @@
                     ]
                 }
             },
+            "scripts": {
+                "analyse": [
+                    "phpstan analyse --no-progress"
+                ]
+            },
             "license": [
                 "LGPL-3.0-only"
             ],
-            "description": "A Command Framework virion for PocketMine-MP ",
+            "authors": [
+                {
+                    "name": "AxolotlBucketLabs"
+                },
+                {
+                    "name": "CortexPE",
+                    "homepage": "https://CortexPE.xyz"
+                }
+            ],
+            "description": "A command framework virion for Axolotl-PM",
             "support": {
-                "source": "https://github.com/ACM-PocketMine-MP/Commando/tree/PM5"
+                "source": "https://github.com/AxolotlBucketLabs/Commando/tree/main"
             },
-            "time": "2025-11-03T07:30:36+00:00"
+            "time": "2026-11-22T10:32:52+00:00"
         },
         {
             "name": "czechpmdevs/libpmform",
             "version": "dev-main",
             "source": {
                 "type": "git",
-                "url": "https://github.com/CzechPMDevs/libpmform.git",
-                "reference": "fd1c448d144f914cac57e8b08654f1c538c236d7"
+                "url": "https://github.com/AxolotlBucketLabs/libpmform.git",
+                "reference": "86648c2ff09fefd0daa8a6f75c1a31d29689da6d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/CzechPMDevs/libpmform/zipball/fd1c448d144f914cac57e8b08654f1c538c236d7",
-                "reference": "fd1c448d144f914cac57e8b08654f1c538c236d7",
+                "url": "https://api.github.com/repos/AxolotlBucketLabs/libpmform/zipball/86648c2ff09fefd0daa8a6f75c1a31d29689da6d",
+                "reference": "86648c2ff09fefd0daa8a6f75c1a31d29689da6d",
                 "shasum": ""
             },
             "require": {
-                "php": "^8.1",
+                "php": "^8.4",
                 "pocketmine/pocketmine-mp": "^5.0.0"
             },
             "require-dev": {
-                "phpstan/phpstan": "1.10.18"
+                "axolotl-pm/pocketmine-mp": "5.51.2",
+                "phpstan/phpstan": "^2.2.0"
             },
             "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "": [
-                        "src"
-                    ]
+                    "czechpmdevs\\libpmform\\": "src/czechpmdevs/libpmform/"
                 }
+            },
+            "scripts": {
+                "analyse": [
+                    "@php vendor/bin/phpstan analyse --no-progress"
+                ]
             },
             "license": [
                 "Apache-2.0"
             ],
             "authors": [
                 {
+                    "name": "AxolotlBucketLabs"
+                },
+                {
                     "name": "VixikHD"
                 }
             ],
             "description": "Simple form library",
             "support": {
-                "source": "https://github.com/CzechPMDevs/libpmform/tree/main",
-                "issues": "https://github.com/CzechPMDevs/libpmform/issues"
+                "source": "https://github.com/AxolotlBucketLabs/libpmform/tree/main"
             },
-            "time": "2025-11-04T22:24:44+00:00"
+            "time": "2026-11-21T23:44:06+00:00"
         },
         {
             "name": "muqsit/simple-packet-handler",
@@ -607,30 +635,45 @@
         },
         {
             "name": "muqsit/vanillagenerator",
-            "version": "dev-master",
+            "version": "dev-main",
             "source": {
                 "type": "git",
-                "url": "https://github.com/CzechPMDevs/VanillaGenerator.git",
-                "reference": "a78a4ff2e5fa2c042c8d7f4a5cdaab53832f150c"
+                "url": "https://github.com/AxolotlBucketLabs/VanillaGenerator.git",
+                "reference": "4a7a5dfe352378f44cdb4a67047a777049ad62eb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/CzechPMDevs/VanillaGenerator/zipball/a78a4ff2e5fa2c042c8d7f4a5cdaab53832f150c",
-                "reference": "a78a4ff2e5fa2c042c8d7f4a5cdaab53832f150c",
+                "url": "https://api.github.com/repos/AxolotlBucketLabs/VanillaGenerator/zipball/4a7a5dfe352378f44cdb4a67047a777049ad62eb",
+                "reference": "4a7a5dfe352378f44cdb4a67047a777049ad62eb",
                 "shasum": ""
             },
             "require": {
+                "php": "^8.4",
                 "pocketmine/pocketmine-mp": "^5.0.0"
             },
             "require-dev": {
-                "phpstan/phpstan": "^1.10.18"
+                "axolotl-pm/pocketmine-mp": "5.51.2"
             },
             "default-branch": true,
             "type": "library",
+            "extra": {
+                "virion": {
+                    "spec": "3.0",
+                    "namespace-root": "muqsit\\vanillagenerator"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "muqsit\\vanillagenerator\\": "src/muqsit/vanillagenerator/"
+                }
+            },
             "license": [
                 "MIT"
             ],
             "authors": [
+                {
+                    "name": "AxolotlBucketLabs"
+                },
                 {
                     "name": "Muqsit"
                 },
@@ -641,10 +684,9 @@
             ],
             "description": "Vanilla generator ported to PocketMine as a library",
             "support": {
-                "source": "https://github.com/CzechPMDevs/VanillaGenerator/tree/master",
-                "issues": "https://github.com/CzechPMDevs/VanillaGenerator/issues"
+                "source": "https://github.com/AxolotlBucketLabs/VanillaGenerator/tree/main"
             },
-            "time": "2023-08-02T14:53:38+00:00"
+            "time": "2026-11-22T11:15:22+00:00"
         },
         {
             "name": "netresearch/jsonmapper",

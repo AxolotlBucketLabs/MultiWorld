@@ -31,11 +31,9 @@ use function mkdir;
 use function preg_replace_callback;
 use function rmdir;
 use function sprintf;
-use function str_contains;
 use function str_replace;
 use function strlen;
 use function substr;
-use function substr_count;
 use function trim;
 use function unlink;
 use const DIRECTORY_SEPARATOR;
@@ -99,9 +97,6 @@ try {
 			}
 		}
 		copyDirectory($sourceDirectory . DIRECTORY_SEPARATOR . 'src', $targetDirectory . DIRECTORY_SEPARATOR . 'src');
-		if($virionName === 'VanillaGenerator') {
-			patchVanillaGenerator($targetDirectory);
-		}
 		$resourcesDirectory = $sourceDirectory . DIRECTORY_SEPARATOR . 'resources';
 		if(is_dir($resourcesDirectory)) {
 			copyDirectory($resourcesDirectory, $targetDirectory . DIRECTORY_SEPARATOR . 'resources');
@@ -168,86 +163,6 @@ function copyVirionManifest(string $sourceFile, string $targetFile): void {
 	}
 }
 
-function patchVanillaGenerator(string $virionDirectory): void {
-	$path = $virionDirectory . DIRECTORY_SEPARATOR . implode(DIRECTORY_SEPARATOR, [
-		'src',
-		'muqsit',
-		'vanillagenerator',
-		'generator',
-		'overworld',
-		'decorator',
-		'TreeDecorator.php'
-	]);
-	$contents = file_get_contents($path);
-	if($contents === false) {
-		throw new RuntimeException('Could not read VanillaGenerator TreeDecorator.php.');
-	}
-
-	$lineEnding = str_contains($contents, "\r\n") ? "\r\n" : "\n";
-	$methods = implode($lineEnding, [
-		"\tprivate static function createTree(string \$class, Random \$random, BlockTransaction \$transaction) : GenericTree{",
-		"\t\tif(\$class === GenericTree::class){",
-		"\t\t\treturn new GenericTree(\$random, \$transaction);",
-		"\t\t}",
-		'',
-		"\t\treturn self::createCustomTree(\$class, \$random, \$transaction);",
-		"\t}",
-		'',
-		"\t/** @devtools-allow-dynamic-class \$class */",
-		"\tprivate static function createCustomTree(string \$class, Random \$random, BlockTransaction \$transaction) : GenericTree{",
-		"\t\tif(!class_exists(\$class)){",
-		"\t\t\tthrow new Exception(\"Tree class \$class does not exist.\");",
-		"\t\t}",
-		"\t\tif(!is_subclass_of(\$class, GenericTree::class)){",
-		"\t\t\tthrow new Exception(\"Tree class \$class must extend GenericTree.\");",
-		"\t\t}",
-		'',
-		"\t\treturn new \$class(\$random, \$transaction);",
-	"\t}",
-	]);
-	$methodAnchor = "\tpublic function populate(ChunkManager \$world, Random \$random, int \$chunkX, int \$chunkZ, Chunk \$chunk) : void{";
-	$constructor = '$tree = new $class($random, $txn);';
-	$replacement = '$tree = self::createTree($class, $random, $txn);';
-	if(substr_count($contents, $methodAnchor) !== 1 || substr_count($contents, $constructor) !== 1) {
-		throw new RuntimeException('VanillaGenerator TreeDecorator.php no longer matches the expected source.');
-	}
-	$patched = str_replace($methodAnchor, $methods . $lineEnding . $lineEnding . $methodAnchor, $contents);
-	$patched = str_replace($constructor, $replacement, $patched);
-	if(file_put_contents($path, $patched) !== strlen($patched)) {
-		throw new RuntimeException('Could not apply the guarded tree factory to VanillaGenerator.');
-	}
-	patchMesaGroundGenerator($virionDirectory);
-}
-
-function patchMesaGroundGenerator(string $virionDirectory): void {
-	$path = $virionDirectory . DIRECTORY_SEPARATOR . implode(DIRECTORY_SEPARATOR, [
-		'src',
-		'muqsit',
-		'vanillagenerator',
-		'generator',
-		'ground',
-		'MesaGroundGenerator.php'
-	]);
-	$contents = file_get_contents($path);
-	if($contents === false) {
-		throw new RuntimeException('Could not read VanillaGenerator MesaGroundGenerator.php.');
-	}
-
-	$replacements = [
-		'$this->setColoredGroundLayer($world, $x, $y, $z, $y < $seaLevel || $y > 128 ? 1 : ($colored ? $color : -1));' => '$this->setColoredGroundLayer($world, $x, $y, $z, $y < $seaLevel || $y > 128 ? DyeColor::ORANGE() : ($colored ? $color : null));',
-		'private function setColoredGroundLayer(ChunkManager $world, int $x, int $y, int $z, DyeColor $color) : void{' => 'private function setColoredGroundLayer(ChunkManager $world, int $x, int $y, int $z, ?DyeColor $color) : void{',
-		'$world->setBlockAt($x, $y, $z, $color >= 0 ? VanillaBlocks::STAINED_CLAY()->setColor($color) : VanillaBlocks::HARDENED_CLAY());' => '$world->setBlockAt($x, $y, $z, $color !== null ? VanillaBlocks::STAINED_CLAY()->setColor($color) : VanillaBlocks::HARDENED_CLAY());'
-	];
-	foreach($replacements as $search => $replace) {
-		if(substr_count($contents, $search) !== 1) {
-			throw new RuntimeException('VanillaGenerator MesaGroundGenerator.php no longer matches the expected source.');
-		}
-		$contents = str_replace($search, $replace, $contents);
-	}
-	if(file_put_contents($path, $contents) !== strlen($contents)) {
-		throw new RuntimeException('Could not patch VanillaGenerator MesaGroundGenerator.php.');
-	}
-}
 
 function copyDirectory(string $sourceDirectory, string $targetDirectory): void {
 	if(!mkdir($targetDirectory, 0777, true) && !is_dir($targetDirectory)) {
